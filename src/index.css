@@ -8,35 +8,59 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Blue Dot Studio Design System */
+    --background: 0 0% 15%; /* #262626 */
+    --foreground: 0 0% 95%; /* #f1f1f2 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 18%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 194 95% 52%; /* #12b8f8 - Blue Dot brand blue */
+    --primary-foreground: 0 0% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 22%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 25%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 26 100% 55%; /* #ff8819 - Orange accent */
+    --accent-foreground: 0 0% 15%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 30%;
+    --input: 0 0% 20%;
+    --ring: 194 95% 52%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Custom Blue Dot Colors */
+    --blue-dot-primary: 194 95% 52%; /* #12b8f8 */
+    --blue-dot-dark: 0 0% 15%; /* #262626 */
+    --blue-dot-light: 0 0% 95%; /* #f1f1f2 */
+    --blue-dot-accent: 26 100% 55%; /* #ff8819 */
+
+    /* Glass morphism */
+    --glass-bg: 0 0% 95% / 0.1;
+    --glass-border: 0 0% 95% / 0.2;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--blue-dot-primary)), hsl(var(--blue-dot-accent)));
+    --gradient-dark: linear-gradient(180deg, hsl(var(--blue-dot-dark)), hsl(0 0% 10%));
+    
+    /* Shadows */
+    --shadow-primary: 0 10px 30px -10px hsl(var(--blue-dot-primary) / 0.3);
+    --shadow-accent: 0 5px 20px -5px hsl(var(--blue-dot-accent) / 0.4);
+    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +124,54 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+    box-shadow: var(--shadow-glass);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .shadow-primary {
+    box-shadow: var(--shadow-primary);
+  }
+
+  .shadow-accent {
+    box-shadow: var(--shadow-accent);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .hero-text {
+    @apply text-6xl md:text-8xl font-bold tracking-tight;
+  }
+
+  .section-padding {
+    @apply py-20 px-4 md:px-8 lg:px-12;
   }
 }

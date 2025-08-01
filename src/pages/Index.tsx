@@ -1,12 +1,40 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Navigation from '@/components/Navigation';
+import Hero from '@/components/Hero';
+import Projects from '@/components/Projects';
+import About from '@/components/About';
+import Reviews from '@/components/Reviews';
+import FAQ from '@/components/FAQ';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
+  useEffect(() => {
+    // Smooth scrolling setup
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Refresh ScrollTrigger on load
+    ScrollTrigger.refresh();
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background overflow-x-hidden">
+      <Navigation />
+      <Hero />
+      <Projects />
+      <About />
+      <Reviews />
+      <FAQ />
+      <Contact />
+      <Footer />
     </div>
   );
 };
