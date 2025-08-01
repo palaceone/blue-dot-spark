@@ -106,7 +106,7 @@ const Hero = () => {
             <Button 
               variant="default" 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-medium shadow-primary transition-bounce"
+              className="glass-button bg-primary/20 backdrop-blur-lg border border-primary/30 text-primary hover:bg-primary/30 hover:border-primary/50 px-8 py-6 text-lg font-medium shadow-primary transition-bounce"
               onClick={scrollToProjects}
             >
               View Our Work
@@ -115,22 +115,13 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-6 text-lg font-medium transition-bounce"
+              className="glass-button bg-accent/20 backdrop-blur-lg border border-accent/30 text-accent hover:bg-accent/30 hover:border-accent/50 px-8 py-6 text-lg font-medium transition-bounce"
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Start Your Project
             </Button>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-16 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <ArrowDown className="text-primary" size={24} />
-        </motion.div>
       </div>
     </section>
   );

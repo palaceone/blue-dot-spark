@@ -4,10 +4,12 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink, Zap, Palette, Target } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
+  const navigate = useNavigate();
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
 
@@ -107,6 +109,7 @@ const Projects = () => {
               className="group cursor-pointer"
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
+              onClick={() => index === 0 ? navigate('/project/nexus-brand-identity') : null}
             >
               <Card className="bg-card border-border overflow-hidden h-full transition-smooth hover:shadow-primary group-hover:border-primary/30">
                 <div className="relative overflow-hidden">
