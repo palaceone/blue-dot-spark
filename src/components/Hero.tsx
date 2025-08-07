@@ -1,31 +1,33 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
-import { ArrowDown, Sparkles } from 'lucide-react';
+import { Waves, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
-  const dotRef = useRef<HTMLDivElement>(null);
+  const waveRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // GSAP animations for the blue dot
-    if (dotRef.current) {
-      gsap.fromTo(dotRef.current, 
-        { scale: 0, rotation: 0 },
+    // GSAP animations for the wave logo
+    if (waveRef.current) {
+      gsap.fromTo(waveRef.current, 
+        { scale: 0, rotation: 0, opacity: 0 },
         { 
           scale: 1, 
           rotation: 360, 
-          duration: 1.5, 
+          opacity: 1,
+          duration: 2, 
           ease: 'power3.out',
-          delay: 0.5
+          delay: 0.3
         }
       );
 
       // Floating animation
-      gsap.to(dotRef.current, {
-        y: -20,
-        duration: 2,
+      gsap.to(waveRef.current, {
+        y: -15,
+        duration: 3,
         repeat: -1,
         yoyo: true,
         ease: 'power2.inOut'
@@ -35,14 +37,33 @@ const Hero = () => {
     // Text reveal animation
     if (textRef.current) {
       gsap.fromTo(textRef.current.children,
-        { y: 100, opacity: 0 },
+        { y: 60, opacity: 0 },
         { 
           y: 0, 
           opacity: 1, 
-          duration: 1, 
-          stagger: 0.2, 
+          duration: 1.2, 
+          stagger: 0.15, 
           ease: 'power3.out',
-          delay: 1
+          delay: 0.8
+        }
+      );
+    }
+
+    // Animated grid
+    if (gridRef.current) {
+      const dots = gridRef.current.querySelectorAll('.grid-dot');
+      gsap.fromTo(dots,
+        { scale: 0, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 0.3,
+          duration: 0.5,
+          stagger: {
+            amount: 2,
+            from: "center",
+            grid: "auto"
+          },
+          ease: 'power2.out'
         }
       );
     }
@@ -55,70 +76,93 @@ const Hero = () => {
     }
   };
 
+  // Generate grid dots
+  const generateGridDots = () => {
+    const dots = [];
+    for (let i = 0; i < 100; i++) {
+      dots.push(
+        <div 
+          key={i} 
+          className="grid-dot"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 3}s`
+          }}
+        />
+      );
+    }
+    return dots;
+  };
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden gradient-dark">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-pulse-slow" />
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-accent/10 rounded-full blur-xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-10 w-24 h-24 bg-primary/5 rounded-full blur-lg animate-float" />
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
+      {/* Animated Grid Background */}
+      <div ref={gridRef} className="absolute inset-0 z-0">
+        {generateGridDots()}
       </div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
-        {/* Blue Dot Logo */}
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-transparent to-gray-900/50 z-10" />
+
+      <div className="container mx-auto px-4 text-center relative z-20">
+        {/* Waves Logo */}
         <motion.div 
-          className="flex items-center justify-center mb-12"
+          className="flex items-center justify-center mb-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          <div ref={dotRef} className="relative">
-            <div className="w-20 h-20 bg-primary rounded-full shadow-primary relative">
-              <div className="absolute inset-2 bg-primary/20 rounded-full animate-ping" />
-              <div className="absolute inset-4 bg-white/20 rounded-full" />
+          <div ref={waveRef} className="relative group">
+            <div className="w-16 h-16 flex items-center justify-center relative">
+              <Waves 
+                className="text-white text-4xl group-hover:text-blue-400 transition-colors duration-500" 
+                size={48}
+              />
+              <div className="absolute inset-0 bg-white/5 rounded-full blur-lg group-hover:bg-blue-400/20 transition-all duration-500" />
             </div>
-            <Sparkles className="absolute -top-2 -right-2 text-accent animate-pulse" size={16} />
           </div>
           <motion.h1 
-            className="ml-4 text-4xl font-bold text-white"
-            initial={{ x: -20, opacity: 0 }}
+            className="ml-6 text-5xl font-bold text-white tracking-wider"
+            initial={{ x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
           >
-            Blue Dot
+            WAVES
           </motion.h1>
         </motion.div>
 
         {/* Main Text */}
-        <div ref={textRef} className="max-w-4xl mx-auto">
-          <h2 className="hero-text text-gradient mb-6">
-            Design That
+        <div ref={textRef} className="max-w-5xl mx-auto">
+          <h2 className="hero-text text-gradient mb-8">
+            Creative
             <br />
-            <span className="text-white">Converts</span>
+            <span className="text-white">Agency</span>
           </h2>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            We create minimalistic, impactful designs that turn your vision into 
-            <span className="text-primary font-medium"> powerful brands</span> that drive results.
+          <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+            We design digital experiences that make 
+            <span className="text-white font-medium"> waves</span> in your industry.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               variant="default" 
               size="lg" 
-              className="glass-button bg-primary/20 backdrop-blur-lg border border-primary/30 text-primary hover:bg-primary/30 hover:border-primary/50 px-8 py-6 text-lg font-medium shadow-primary transition-bounce"
+              className="glass-effect hover:bg-white/10 border border-white/20 text-white hover:border-white/40 px-10 py-6 text-lg font-medium transition-all duration-300 group"
               onClick={scrollToProjects}
             >
+              <Play className="mr-2 group-hover:text-blue-400 transition-colors duration-300" size={20} />
               View Our Work
             </Button>
             
             <Button 
               variant="outline" 
               size="lg" 
-              className="glass-button bg-accent/20 backdrop-blur-lg border border-accent/30 text-accent hover:bg-accent/30 hover:border-accent/50 px-8 py-6 text-lg font-medium transition-bounce"
+              className="glass-effect hover:bg-white/10 border border-white/20 text-white hover:border-white/40 px-10 py-6 text-lg font-medium transition-all duration-300"
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Start Your Project
+              Start Project
             </Button>
           </div>
         </div>

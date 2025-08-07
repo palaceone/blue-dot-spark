@@ -43,8 +43,8 @@ const Navigation = () => {
   return (
     <>
       {/* Hamburger Button */}
-      <motion.button
-        className="fixed top-8 right-8 z-50 p-4 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm transition-smooth hover:scale-110"
+        <motion.button
+        className="fixed top-8 right-8 z-50 p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm transition-smooth hover:scale-110 hover:bg-white/10"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
@@ -68,7 +68,7 @@ const Navigation = () => {
               exit={{ rotate: -90, opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Menu size={24} className="text-primary" />
+              <Menu size={24} className="text-white" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -86,13 +86,13 @@ const Navigation = () => {
           >
             {/* Backdrop */}
             <div 
-              className="absolute inset-0 bg-white/10 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
               onClick={() => setIsMenuOpen(false)}
             />
             
             {/* Menu Content */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="menu-bg w-96 h-96 rounded-[3rem] bg-white/20 border border-white/30 backdrop-blur-md flex items-center justify-center scale-0">
+              <div className="menu-bg w-96 h-96 rounded-[3rem] bg-black/90 border border-white/10 backdrop-blur-md flex items-center justify-center scale-0">
                 <nav className="text-center">
                   {menuItems.map((item, index) => (
                     <motion.button
