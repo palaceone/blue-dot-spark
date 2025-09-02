@@ -1,40 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
-import { Menu, X, Facebook, Instagram } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    // GSAP animation for menu overlay
+    // GSAP animation for menu background
     if (isMenuOpen) {
-      gsap.to('.menu-overlay', {
-        duration: 0.4,
-        opacity: 1,
-        visibility: 'visible',
+      gsap.to('.menu-bg', {
+        duration: 0.6,
+        scale: 1,
         ease: 'power3.out'
       });
-      gsap.to('.menu-content', {
-        duration: 0.5,
-        y: 0,
-        opacity: 1,
-        ease: 'power3.out',
-        delay: 0.1
-      });
     } else {
-      gsap.to('.menu-content', {
-        duration: 0.3,
-        y: -50,
-        opacity: 0,
-        ease: 'power3.in'
-      });
-      gsap.to('.menu-overlay', {
+      gsap.to('.menu-bg', {
         duration: 0.4,
-        opacity: 0,
-        visibility: 'hidden',
-        ease: 'power3.in',
-        delay: 0.1
+        scale: 0,
+        ease: 'power3.in'
       });
     }
   }, [isMenuOpen]);
@@ -63,134 +47,82 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Header Bar */}
-      <header className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-border">
-        <div className="flex items-center justify-between px-6 py-4">
-          {/* Hamburger Menu Button */}
-          <motion.button
-            className="flex flex-col items-center justify-center w-8 h-8 space-y-1.5 hover:opacity-70 transition-opacity"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.div 
-              className="w-6 h-0.5 bg-primary rounded-full"
-              animate={isMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+      {/* Hamburger Button */}
+      <motion.button
+        className="fixed top-8 right-8 z-50 p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm transition-smooth hover:scale-110 hover:bg-white/10"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <AnimatePresence mode="wait">
+          {isMenuOpen ? (
+            <motion.div
+              key="close"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
               transition={{ duration: 0.3 }}
-            />
-            <motion.div 
-              className="w-6 h-0.5 bg-primary rounded-full"
-              animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.div 
-              className="w-6 h-0.5 bg-primary rounded-full"
-              animate={isMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.button>
-
-          {/* Logo */}
-          <div className="absolute left-1/2 transform -translate-x-1/2">
-            <motion.div 
-              className="text-2xl font-bold text-primary cursor-pointer"
-              onClick={() => window.location.href = '/'}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
-              <span className="text-primary">Studio</span>
+              <X size={24} className="text-white" />
             </motion.div>
-          </div>
-
-          {/* Right Side - Social & CTA */}
-          <div className="flex items-center space-x-4">
-            <div className="hidden md:flex items-center space-x-3">
-              <motion.a 
-                href="#" 
-                className="text-muted-foreground hover:text-primary transition-colors"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Facebook size={20} />
-              </motion.a>
-              <motion.a 
-                href="#" 
-                className="text-muted-foreground hover:text-primary transition-colors"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Instagram size={20} />
-              </motion.a>
-            </div>
-            <motion.button
-              className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
-              onClick={() => handleMenuClick('#contact')}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+          ) : (
+            <motion.div
+              key="menu"
+              initial={{ rotate: 90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: -90, opacity: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              BEZPŁATNA WYCENA
-            </motion.button>
-          </div>
-        </div>
-      </header>
+              <Menu size={24} className="text-white" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button>
 
-      {/* Full Screen Menu Overlay */}
-      <div className="menu-overlay fixed inset-0 z-50 bg-white invisible opacity-0">
-        <div className="menu-content flex flex-col items-center justify-center h-full opacity-0 translate-y-[-50px]">
-          {/* Close Button */}
-          <motion.button
-            className="absolute top-8 right-8 p-2 text-muted-foreground hover:text-primary transition-colors"
-            onClick={() => setIsMenuOpen(false)}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+      {/* Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            className="fixed inset-0 z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            <X size={32} />
-          </motion.button>
-
-          {/* Menu Items */}
-          <nav className="text-center space-y-8">
-            {menuItems.map((item, index) => (
-              <motion.button
-                key={item.name}
-                className="block text-4xl md:text-5xl font-bold text-foreground hover:text-primary transition-colors py-2"
-                onClick={() => handleMenuClick(item.href)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ 
-                  opacity: isMenuOpen ? 1 : 0, 
-                  y: isMenuOpen ? 0 : 30 
-                }}
-                transition={{ 
-                  delay: isMenuOpen ? index * 0.1 + 0.2 : 0,
-                  duration: 0.4 
-                }}
-              >
-                {item.name}
-              </motion.button>
-            ))}
-          </nav>
-
-          {/* Social Links in Menu */}
-          <div className="absolute bottom-12 flex items-center space-x-6">
-            <motion.a 
-              href="#" 
-              className="text-muted-foreground hover:text-primary transition-colors"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Facebook size={24} />
-            </motion.a>
-            <motion.a 
-              href="#" 
-              className="text-muted-foreground hover:text-primary transition-colors"
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Instagram size={24} />
-            </motion.a>
-          </div>
-        </div>
-      </div>
+            {/* Backdrop */}
+            <div 
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setIsMenuOpen(false)}
+            />
+            
+            {/* Menu Content - positioned on the left */}
+            <div className="absolute top-1/2 left-12 transform -translate-y-1/2">
+              <div className="menu-bg w-96 h-96 rounded-[3rem] bg-black/90 border border-white/10 backdrop-blur-md flex items-center justify-center scale-0">
+                <nav className="text-left pl-8">
+                  {menuItems.map((item, index) => (
+                    <motion.button
+                      key={item.name}
+                      className="block w-full py-4 px-8 text-white text-xl font-medium hover:text-primary transition-smooth text-left"
+                      onClick={() => handleMenuClick(item.href)}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ 
+                        opacity: isMenuOpen ? 1 : 0, 
+                        x: isMenuOpen ? 0 : -20 
+                      }}
+                      transition={{ 
+                        delay: isMenuOpen ? index * 0.1 + 0.3 : 0,
+                        duration: 0.3 
+                      }}
+                    >
+                      {item.name}
+                    </motion.button>
+                  ))}
+                </nav>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
