@@ -109,7 +109,12 @@ const Projects = () => {
               className="group cursor-pointer"
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
-              onClick={() => navigate('/projekty')}
+              onClick={() => {
+                if (project.title === 'Virality - Logo Design') navigate('/project/virality-logo');
+                else if (project.title === 'Ecommerce Studio') navigate('/project/ecommerce-studio');
+                else if (project.title === 'DIHO - Grafika Koncertowa') navigate('/project/diho-tour');
+                else navigate('/projekty');
+              }}
             >
               <Card className="bg-card border-border overflow-hidden h-full transition-smooth hover:shadow-primary group-hover:border-primary/30">
                 <div className="relative overflow-hidden">
