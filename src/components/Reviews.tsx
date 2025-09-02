@@ -40,44 +40,44 @@ const Reviews = () => {
 
   const reviews = [
     {
-      name: 'Sarah Chen',
-      position: 'CEO, TechFlow',
-      review: 'Blue Dot completely transformed our brand identity. The minimalistic approach they took perfectly captured our vision while significantly improving our market presence.',
+      name: 'Anna Kowalska',
+      position: 'CEO, TechFlow Polska',
+      review: 'WAVES całkowicie przekształciło naszą identyfikację wizualną. Minimalistyczne podejście, które zastosowali, idealnie uchwyciło naszą wizję, znacząco poprawiając naszą obecność na rynku.',
       rating: 5,
       avatar: '🚀'
     },
     {
-      name: 'Marcus Rodriguez',
-      position: 'Founder, Artisan Goods',
-      review: 'Working with Blue Dot was a game-changer. Their packaging design increased our sales by 65% in just three months. Incredible attention to detail!',
+      name: 'Marcin Nowak',
+      position: 'Założyciel, Artisan Goods',
+      review: 'Współpraca z WAVES była przełomowa. Ich projekt opakowań zwiększył naszą sprzedaż o 65% w zaledwie trzy miesiące. Niesamowita dbałość o szczegóły!',
       rating: 5,
       avatar: '☕'
     },
     {
-      name: 'Emily Johnson',
-      position: 'Marketing Director, InnovateLab',
-      review: 'The team at Blue Dot delivered beyond our expectations. Their strategic approach to design thinking helped us connect with our audience in ways we never imagined.',
+      name: 'Ewa Wiśniewska',
+      position: 'Dyrektor Marketingu, InnovateLab',
+      review: 'Zespół WAVES przekroczył nasze oczekiwania. Ich strategiczne podejście do myślenia projektowego pomogło nam połączyć się z naszą publicznością w sposób, jakiego nigdy nie wyobrażaliśmy sobie.',
       rating: 5,
       avatar: '💡'
     },
     {
-      name: 'David Kim',
-      position: 'Creative Director, Pulse Media',
-      review: 'Exceptional work! Blue Dot\'s ability to translate complex ideas into simple, elegant designs is unmatched. Our conversion rates have never been higher.',
+      name: 'Dawid Kaczmarek',
+      position: 'Dyrektor Kreatywny, Pulse Media',
+      review: 'Wyjątkowa praca! Zdolność WAVES do przekładania złożonych idei na proste, eleganckie projekty jest niezrównana. Nasze wskaźniki konwersji nigdy nie były wyższe.',
       rating: 5,
       avatar: '🎨'
     },
     {
-      name: 'Lisa Thompson',
+      name: 'Katarzyna Zielińska',
       position: 'Brand Manager, EcoVibe',
-      review: 'Professional, creative, and results-driven. Blue Dot helped us launch our sustainable brand with designs that truly resonate with our eco-conscious audience.',
+      review: 'Profesjonalni, kreatywni i ukierunkowani na rezultaty. WAVES pomogło nam wprowadzić naszą ekologiczną markę z projektami, które naprawdę rezonują z naszą świadomą ekologicznie publicznością.',
       rating: 5,
       avatar: '🌱'
     },
     {
-      name: 'Alex Morgan',
-      position: 'Startup Founder, NextGen',
-      review: 'From concept to execution, Blue Dot was with us every step of the way. Their designs helped us secure our Series A funding by making our vision tangible.',
+      name: 'Aleksander Wolski',
+      position: 'Założyciel Startupu, NextGen',
+      review: 'Od koncepcji po realizację, WAVES towarzyszyło nam na każdym kroku. Ich projekty pomogły nam zabezpieczyć finansowanie Series A, czyniąc naszą wizję namacalną.',
       rating: 5,
       avatar: '⚡'
     }
@@ -101,11 +101,11 @@ const Reviews = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-5xl md:text-6xl font-bold text-gradient mb-6">
-            Client Love
+            Opinie Klientów
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our clients say about 
-            working with Blue Dot Studio.
+            Nie wierz nam na słowo. Oto co mówią nasi klienci o 
+            współpracy z WAVES Studio.
           </p>
         </motion.div>
 
@@ -171,15 +171,15 @@ const Reviews = () => {
         >
           <div className="p-6">
             <div className="text-4xl font-bold text-gradient mb-2">98%</div>
-            <div className="text-muted-foreground">Client Satisfaction</div>
+            <div className="text-muted-foreground">Zadowolenie Klientów</div>
           </div>
           <div className="p-6">
             <div className="text-4xl font-bold text-gradient mb-2">150+</div>
-            <div className="text-muted-foreground">Happy Clients</div>
+            <div className="text-muted-foreground">Zadowolonych Klientów</div>
           </div>
           <div className="p-6">
             <div className="text-4xl font-bold text-gradient mb-2">5★</div>
-            <div className="text-muted-foreground">Average Rating</div>
+            <div className="text-muted-foreground">Średnia Ocena</div>
           </div>
         </motion.div>
       </div>

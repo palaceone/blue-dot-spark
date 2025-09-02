@@ -13,21 +13,21 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'About', href: '#about' },
-    { name: 'Reviews', href: '#reviews' },
+    { name: 'Start', href: '#home' },
+    { name: 'Projekty', href: '#projects' },
+    { name: 'O Nas', href: '#about' },
+    { name: 'Opinie', href: '#reviews' },
     { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Kontakt', href: '#contact' }
   ];
 
   const services = [
-    'Brand Identity',
-    'Logo Design',
-    'Packaging Design',
-    'Web Design',
-    'Print Design',
-    'Digital Assets'
+    'Identyfikacja Wizualna',
+    'Projektowanie Logo',
+    'Projekt Opakowań',
+    'Projektowanie Stron',
+    'Materiały Drukowane',
+    'Zasoby Cyfrowe'
   ];
 
   const handleLinkClick = (href: string) => {
@@ -53,11 +53,11 @@ const Footer = () => {
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                 <div className="w-6 h-6 bg-white/20 rounded-full" />
               </div>
-              <h3 className="text-2xl font-bold text-foreground">Blue Dot</h3>
+              <h3 className="text-2xl font-bold text-foreground">WAVES</h3>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Creating minimalistic, impactful designs that transform brands and drive results. 
-              Your vision, our expertise.
+              Tworzymy minimalistyczne, efektowne projekty graficzne i treści wideo, 
+              które transformują marki i przynoszą rezultaty. Twoja wizja, nasza ekspertyza.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
@@ -86,7 +86,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold mb-6 text-foreground">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-6 text-foreground">Szybkie Linki</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <motion.li
@@ -114,7 +114,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold mb-6 text-foreground">Services</h4>
+            <h4 className="text-lg font-semibold mb-6 text-foreground">Usługi</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <motion.li
@@ -138,19 +138,19 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold mb-6 text-foreground">Contact</h4>
+            <h4 className="text-lg font-semibold mb-6 text-foreground">Kontakt</h4>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <Mail size={16} className="text-primary" />
-                <span className="text-muted-foreground">hello@bluedotstudio.com</span>
+                <span className="text-muted-foreground">hello@wavesstudio.pl</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={16} className="text-primary" />
-                <span className="text-muted-foreground">+1 (555) 123-4567</span>
+                <span className="text-muted-foreground">+48 123 456 789</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin size={16} className="text-primary" />
-                <span className="text-muted-foreground">Creative District, Design City</span>
+                <span className="text-muted-foreground">Nowy Dwór Mazowiecki</span>
               </div>
             </div>
 
@@ -161,7 +161,7 @@ const Footer = () => {
               whileTap={{ scale: 0.95 }}
               onClick={() => handleLinkClick('#contact')}
             >
-              Get Started
+              Rozpocznij Projekt
             </motion.button>
           </motion.div>
         </div>
@@ -176,17 +176,17 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
-              © {currentYear} Blue Dot Studio. All rights reserved.
+              © {currentYear} WAVES Studio. Wszelkie prawa zastrzeżone.
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
-                Privacy Policy
+                Polityka Prywatności
               </a>
               <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
-                Terms of Service
+                Regulamin
               </a>
               <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
-                Cookie Policy
+                Polityka Cookies
               </a>
             </div>
           </div>

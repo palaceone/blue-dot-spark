@@ -48,7 +48,7 @@ const Navigation = () => {
   return (
     <>
       {/* Hamburger Button */}
-        <motion.button
+      <motion.button
         className="fixed top-8 right-8 z-50 p-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm transition-smooth hover:scale-110 hover:bg-white/10"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         whileHover={{ scale: 1.1 }}

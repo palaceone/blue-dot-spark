@@ -38,10 +38,10 @@ const About = () => {
   }, []);
 
   const stats = [
-    { number: '150+', label: 'Projects Completed', icon: <Award className="text-primary" size={32} /> },
-    { number: '98%', label: 'Client Satisfaction', icon: <Users className="text-accent" size={32} /> },
-    { number: '5+', label: 'Years Experience', icon: <Lightbulb className="text-primary" size={32} /> },
-    { number: '24h', label: 'Average Response', icon: <Rocket className="text-accent" size={32} /> }
+    { number: '150+', label: 'Ukończonych Projektów', icon: <Award className="text-primary" size={32} /> },
+    { number: '98%', label: 'Zadowolenie Klientów', icon: <Users className="text-accent" size={32} /> },
+    { number: '5+', label: 'Lat Doświadczenia', icon: <Lightbulb className="text-primary" size={32} /> },
+    { number: '24h', label: 'Średni Czas Odpowiedzi', icon: <Rocket className="text-accent" size={32} /> }
   ];
 
   const addToStatsRefs = (el: HTMLDivElement | null) => {
@@ -62,14 +62,14 @@ const About = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">Design</span>
+              <span className="text-gradient">Doskonałość</span>
               <br />
-              <span className="text-foreground">Excellence</span>
+              <span className="text-foreground">Projektowa</span>
             </h2>
             
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              At Blue Dot Studio, we believe that great design is more than just aesthetics—
-              it's about creating meaningful connections between brands and their audiences.
+              W WAVES Studio wierzymy, że doskonały design to coś więcej niż estetyka—
+              to tworzenie znaczących połączeń między markami a ich odbiorcami.
             </p>
             
             <div className="space-y-6">
@@ -78,9 +78,9 @@ const About = () => {
                   <Lightbulb className="text-primary" size={20} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">Strategic Thinking</h3>
+                  <h3 className="text-lg font-semibold mb-2">Strategiczne Myślenie</h3>
                   <p className="text-muted-foreground">
-                    Every design decision is backed by research, strategy, and a deep understanding of your market.
+                    Każda decyzja projektowa opiera się na badaniach, strategii i głębokim zrozumieniu Twojego rynku.
                   </p>
                 </div>
               </div>
@@ -90,9 +90,9 @@ const About = () => {
                   <Rocket className="text-accent" size={20} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2">Results-Driven</h3>
+                  <h3 className="text-lg font-semibold mb-2">Ukierunkowane na Rezultaty</h3>
                   <p className="text-muted-foreground">
-                    We measure success by your success. Our designs are crafted to drive engagement, conversions, and growth.
+                    Mierzymy sukces Twoim sukcesem. Nasze projekty są tworzone, aby zwiększać zaangażowanie, konwersje i wzrost.
                   </p>
                 </div>
               </div>
@@ -136,14 +136,14 @@ const About = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-3xl font-bold mb-12 text-gradient">Our Process</h3>
+          <h3 className="text-3xl font-bold mb-12 text-gradient">Nasz Proces</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { step: '01', title: 'Discovery', desc: 'Understanding your vision and goals' },
-              { step: '02', title: 'Strategy', desc: 'Developing the perfect approach' },
-              { step: '03', title: 'Design', desc: 'Creating stunning visual solutions' },
-              { step: '04', title: 'Launch', desc: 'Bringing your project to life' }
+              { step: '01', title: 'Analiza', desc: 'Zrozumienie Twojej wizji i celów' },
+              { step: '02', title: 'Strategia', desc: 'Opracowanie idealnego podejścia' },
+              { step: '03', title: 'Projekt', desc: 'Tworzenie oszałamiających rozwiązań wizualnych' },
+              { step: '04', title: 'Realizacja', desc: 'Ożywienie Twojego projektu' }
             ].map((process, index) => (
               <motion.div
                 key={process.step}
