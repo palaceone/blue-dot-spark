@@ -98,8 +98,14 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
       {/* Animated Grid Background */}
-      <div ref={gridRef} className="absolute inset-0 z-0">
+      <div ref={gridRef} className="absolute inset-0 z-0 opacity-30">
         {generateGridDots()}
+      </div>
+
+      {/* Floating Animated Orb */}
+      <div className="absolute inset-0 z-5">
+        <div className="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl animate-[float_8s_ease-in-out_infinite] top-1/4 left-1/4" />
+        <div className="absolute w-64 h-64 bg-blue-400/5 rounded-full blur-2xl animate-[float_12s_ease-in-out_infinite_reverse] bottom-1/4 right-1/3" />
       </div>
 
       {/* Subtle gradient overlay */}
