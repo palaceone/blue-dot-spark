@@ -7,17 +7,17 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    // GSAP animation for menu background
+    // GSAP animation for menu overlay
     if (isMenuOpen) {
-      gsap.to('.menu-bg', {
-        duration: 0.6,
-        scale: 1,
+      gsap.to('.menu-overlay', {
+        duration: 0.5,
+        opacity: 1,
         ease: 'power3.out'
       });
     } else {
-      gsap.to('.menu-bg', {
+      gsap.to('.menu-overlay', {
         duration: 0.4,
-        scale: 0,
+        opacity: 0,
         ease: 'power3.in'
       });
     }
@@ -79,46 +79,45 @@ const Navigation = () => {
         </AnimatePresence>
       </motion.button>
 
-      {/* Menu Overlay */}
+      {/* Full Page Menu Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-40"
+            className="menu-overlay fixed inset-0 z-40 bg-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
           >
-            {/* Backdrop */}
-            <div 
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-              onClick={() => setIsMenuOpen(false)}
-            />
-            
-            {/* Menu Content - positioned on the left */}
-            <div className="absolute top-1/2 left-12 transform -translate-y-1/2">
-              <div className="menu-bg w-96 h-96 rounded-[3rem] bg-black/90 border border-white/10 backdrop-blur-md flex items-center justify-center scale-0">
-                <nav className="text-left pl-8">
+            {/* Menu Content on the Left */}
+            <div className="flex h-full">
+              {/* Left Side - Menu Items */}
+              <div className="w-1/2 lg:w-1/3 flex flex-col justify-center pl-12 lg:pl-20">
+                <nav className="space-y-6">
                   {menuItems.map((item, index) => (
                     <motion.button
                       key={item.name}
-                      className="block w-full py-4 px-8 text-white text-xl font-medium hover:text-primary transition-smooth text-left"
+                      className="block text-left text-3xl lg:text-4xl font-bold text-foreground hover:text-primary transition-colors py-2"
                       onClick={() => handleMenuClick(item.href)}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -50 }}
                       animate={{ 
                         opacity: isMenuOpen ? 1 : 0, 
-                        x: isMenuOpen ? 0 : -20 
+                        x: isMenuOpen ? 0 : -50 
                       }}
                       transition={{ 
-                        delay: isMenuOpen ? index * 0.1 + 0.3 : 0,
-                        duration: 0.3 
+                        delay: isMenuOpen ? index * 0.1 + 0.2 : 0,
+                        duration: 0.4 
                       }}
+                      whileHover={{ x: 10 }}
                     >
                       {item.name}
                     </motion.button>
                   ))}
                 </nav>
               </div>
+
+              {/* Right Side - Empty space or background */}
+              <div className="w-1/2 lg:w-2/3 bg-muted/20"></div>
             </div>
           </motion.div>
         )}
