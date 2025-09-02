@@ -160,10 +160,14 @@ All colors MUST be HSL.
 
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-muted-foreground bg-clip-text text-transparent;
+    line-height: 1.2 !important;
+    padding-bottom: 0.1em;
   }
 
   .hero-text {
-    @apply text-6xl md:text-8xl font-black tracking-tight leading-none;
+    @apply text-6xl md:text-8xl font-black tracking-tight;
+    line-height: 1.15 !important;
+    padding-bottom: 0.15em;
   }
 
   .section-padding {
