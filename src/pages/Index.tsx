@@ -29,14 +29,16 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
-      <Hero />
-      <Projects />
-      <Kompetencje />
-      <About />
-      <Reviews />
-      <FAQ />
-      <Contact />
-      <Footer />
+      <div className="pt-20">
+        <Hero />
+        <Projects />
+        <Kompetencje />
+        <About />
+        <Reviews />
+        <FAQ />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 };
