@@ -41,36 +41,24 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: 'What services does Blue Dot Studio offer?',
-      answer: 'We specialize in comprehensive graphic design services including brand identity development, logo design, packaging design, web design, print materials, and digital assets. Our focus is on creating minimalistic, impactful designs that drive results for your business.'
+      question: 'Jakie usługi oferuje WAVES Studio?',
+      answer: 'Specjalizujemy się w projektowaniu graficznym i produkcji video - identyfikacja wizualna, projekty logo, grafika reklamowa, filmy promocyjne, fotografia produktowa i grafika koncertowa dla artystów z regionu Nowego Dworu Mazowieckiego.'
     },
     {
-      question: 'How long does a typical project take?',
-      answer: 'Project timelines vary depending on scope and complexity. A logo design typically takes 1-2 weeks, while a complete brand identity project can take 3-4 weeks. We always provide detailed timelines during our initial consultation and keep you updated throughout the process.'
+      question: 'Ile czasu zajmuje realizacja projektu?',
+      answer: 'Czas realizacji zależy od złożoności projektu. Projekt logo zajmuje zazwyczaj 1-2 tygodnie, podczas gdy kompletna identyfikacja wizualna może potrwać 3-4 tygodnie. Zawsze przedstawiamy szczegółowy harmonogram na początku współpracy.'
     },
     {
-      question: 'What is your design process?',
-      answer: 'Our process consists of four key phases: Discovery (understanding your needs and goals), Strategy (developing the creative approach), Design (creating and refining concepts), and Launch (finalizing and delivering your assets). We involve you at every step to ensure the final result exceeds your expectations.'
+      question: 'Jak wygląda proces projektowania?',
+      answer: 'Nasz proces składa się z czterech etapów: Odkrywanie (poznanie Twoich potrzeb), Strategia (opracowanie podejścia kreatywnego), Projektowanie (tworzenie konceptów) i Finalizacja (dostarczenie gotowych materiałów).'
     },
     {
-      question: 'Do you work with businesses of all sizes?',
-      answer: 'Absolutely! We work with startups, small businesses, and established companies alike. Our approach is tailored to each client\'s specific needs, budget, and goals. Whether you\'re launching a new venture or rebranding an existing business, we\'re here to help.'
+      question: 'Czy pracujecie z firmami każdej wielkości?',
+      answer: 'Tak! Współpracujemy ze startupami, małymi firmami i dużymi przedsiębiorstwami. Nasze podejście jest zawsze dostosowane do specyficznych potrzeb, budżetu i celów klienta z regionu mazowieckiego.'
     },
     {
-      question: 'What makes Blue Dot Studio different?',
-      answer: 'Our commitment to minimalistic design that converts sets us apart. We don\'t just create beautiful designs—we create strategic visual solutions that drive engagement, increase conversions, and deliver measurable results for your business.'
-    },
-    {
-      question: 'Do you provide revisions?',
-      answer: 'Yes, we include multiple revision rounds in all our packages. We work closely with you to refine the design until it perfectly matches your vision. Our goal is to ensure you\'re completely satisfied with the final result.'
-    },
-    {
-      question: 'Can you help with brand strategy?',
-      answer: 'Definitely! Beyond visual design, we offer brand strategy consulting to help you define your brand positioning, messaging, and visual identity guidelines. We ensure your brand resonates with your target audience and stands out in the market.'
-    },
-    {
-      question: 'What file formats do you deliver?',
-      answer: 'We provide all final designs in multiple formats including vector files (AI, EPS), high-resolution raster files (PNG, JPG), and web-optimized formats. You\'ll receive a complete package that covers all your current and future needs.'
+      question: 'Czy zapewniacie korekty projektów?',
+      answer: 'Tak, w każdym pakiecie zawarte są korekty. Pracujemy z klientem nad dopracowaniem projektu, aż do pełnej satysfakcji. Naszym celem jest dostarczenie projektu, który w 100% spełnia Twoje oczekiwania.'
     }
   ];
 
@@ -86,13 +74,13 @@ const FAQ = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-5xl md:text-6xl font-bold text-gradient mb-6">
-            Frequently Asked
+            Najczęściej Zadawane
             <br />
-            Questions
+            Pytania
           </h2>
           <p className="text-xl text-muted-foreground">
-            Got questions? We've got answers. Find everything you need to know about 
-            working with Blue Dot Studio.
+            Masz pytania? Mamy odpowiedzi! Znajdź wszystko, co musisz wiedzieć 
+            o współpracy z WAVES Studio.
           </p>
         </motion.div>
 
@@ -130,7 +118,7 @@ const FAQ = () => {
           viewport={{ once: true }}
         >
           <p className="text-lg text-muted-foreground mb-6">
-            Still have questions? We'd love to hear from you.
+            Masz jeszcze pytania? Chętnie na nie odpowiemy.
           </p>
           <motion.button
             className="px-8 py-4 bg-gradient-primary text-white font-medium rounded-full shadow-primary hover:shadow-accent transition-bounce"
@@ -138,7 +126,7 @@ const FAQ = () => {
             whileTap={{ scale: 0.95 }}
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Get in Touch
+            Skontaktuj się z nami
           </motion.button>
         </motion.div>
       </div>

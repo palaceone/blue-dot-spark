@@ -135,25 +135,25 @@ const Hero = () => {
         {/* Main Text */}
         <div ref={textRef} className="max-w-5xl mx-auto">
           <h2 className="hero-text text-gradient mb-8">
-            Creative
+            Grafika
             <br />
-            <span className="text-white">Agency</span>
+            <span className="text-white">& Video</span>
           </h2>
           
           <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-            We design digital experiences that make 
-            <span className="text-white font-medium"> waves</span> in your industry.
+            Tworzymy projekty graficzne i treści wideo, które 
+            <span className="text-white font-medium"> robią wrażenie</span> w Nowym Dworze Mazowieckim i okolicach.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               variant="default" 
               size="lg" 
-              className="glass-effect hover:bg-white/10 border border-white/20 text-white hover:border-white/40 px-10 py-6 text-lg font-medium transition-all duration-300 group"
+              className="bg-white text-black hover:bg-gray-100 px-10 py-6 text-lg font-medium transition-all duration-300 group"
               onClick={scrollToProjects}
             >
-              <Play className="mr-2 group-hover:text-blue-400 transition-colors duration-300" size={20} />
-              View Our Work
+              <Play className="mr-2 group-hover:text-primary transition-colors duration-300" size={20} />
+              Zobacz Nasze Prace
             </Button>
             
             <Button 
@@ -162,7 +162,7 @@ const Hero = () => {
               className="glass-effect hover:bg-white/10 border border-white/20 text-white hover:border-white/40 px-10 py-6 text-lg font-medium transition-all duration-300"
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Start Project
+              Rozpocznij Projekt
             </Button>
           </div>
         </div>

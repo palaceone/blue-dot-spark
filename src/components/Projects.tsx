@@ -49,28 +49,28 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Nexus Brand Identity',
-      category: 'Brand Design',
-      description: 'Complete brand transformation for a tech startup, including logo, color palette, and brand guidelines.',
+      title: 'Virality - Logo Design',
+      category: 'Identyfikacja Wizualna',
+      description: 'Kompleksowy projekt logo dla firmy technologicznej z Nowego Dworu Mazowieckiego, uwzględniający nowoczesne trendy w designie.',
       image: '/api/placeholder/600/400',
       icon: <Zap className="text-primary" size={24} />,
-      results: '+180% Brand Recognition'
+      results: '+180% Rozpoznawalność Marki'
     },
     {
-      title: 'Artisan Coffee Co.',
-      category: 'Packaging Design',
-      description: 'Minimalistic packaging design that increased shelf appeal and customer engagement.',
+      title: 'Ecommerce Studio',
+      category: 'Branding',
+      description: 'Projekt identyfikacji wizualnej dla studia e-commerce, obejmujący logo, kolorystykę i guidelines.',
       image: '/api/placeholder/600/400',
       icon: <Palette className="text-accent" size={24} />,
-      results: '+65% Sales Increase'
+      results: '+65% Wzrost Sprzedaży'
     },
     {
-      title: 'Digital Agency Rebrand',
-      category: 'Digital Design',
-      description: 'Modern website redesign and digital asset creation for a growing agency.',
+      title: 'DIHO - Grafika Koncertowa',
+      category: 'Grafika Koncertowa',
+      description: 'Projekt graficzny dla trasy koncertowej "Morda Nie Szklanka" - plakaty, banery i materiały promocyjne.',
       image: '/api/placeholder/600/400',
       icon: <Target className="text-primary" size={24} />,
-      results: '+240% Conversion Rate'
+      results: '+240% Zaangażowanie'
     }
   ];
 
@@ -92,11 +92,11 @@ const Projects = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-5xl md:text-6xl font-bold text-gradient mb-6">
-            Featured Work
+            Wybrane Prace
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover how we've helped brands achieve remarkable results through 
-            strategic design and creative excellence.
+            Odkryj, jak pomagamy markom osiągać niezwykłe rezultaty dzięki 
+            strategicznemu projektowaniu i kreatywnej doskonałości.
           </p>
         </motion.div>
 
@@ -109,7 +109,7 @@ const Projects = () => {
               className="group cursor-pointer"
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
-              onClick={() => index === 0 ? navigate('/project/nexus-brand-identity') : null}
+              onClick={() => navigate('/projekty')}
             >
               <Card className="bg-card border-border overflow-hidden h-full transition-smooth hover:shadow-primary group-hover:border-primary/30">
                 <div className="relative overflow-hidden">
@@ -164,7 +164,7 @@ const Projects = () => {
           viewport={{ once: true }}
         >
           <p className="text-lg text-muted-foreground mb-6">
-            Ready to see your project here?
+            Gotowy zobaczyć tutaj swój projekt?
           </p>
           <motion.button
             className="px-8 py-4 bg-gradient-primary text-white font-medium rounded-full shadow-primary hover:shadow-accent transition-bounce"
@@ -172,7 +172,7 @@ const Projects = () => {
             whileTap={{ scale: 0.95 }}
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Start Your Project
+            Rozpocznij Swój Projekt
           </motion.button>
         </motion.div>
       </div>

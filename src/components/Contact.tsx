@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,36 +58,53 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([{
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message
+        }]);
 
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. We'll get back to you within 24 hours.",
-    });
+      if (error) throw error;
 
-    setFormData({ name: '', email: '', company: '', message: '' });
-    setIsSubmitting(false);
+      toast({
+        title: "Wiadomość wysłana!",
+        description: "Dziękujemy za kontakt. Odpowiemy w ciągu 24 godzin.",
+      });
+
+      setFormData({ name: '', email: '', company: '', message: '' });
+    } catch (error) {
+      toast({
+        title: "Błąd",
+        description: "Wystąpił problem z wysłaniem wiadomości. Spróbuj ponownie.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
     {
       icon: <Mail className="text-primary" size={24} />,
-      title: 'Email Us',
-      details: 'hello@bluedotstudio.com',
-      description: 'Drop us a line anytime'
+      title: 'Email',
+      details: 'kontakt@wavesstudio.pl',
+      description: 'Napisz do nas w każdej chwili'
     },
     {
       icon: <Phone className="text-accent" size={24} />,
-      title: 'Call Us',
-      details: '+1 (555) 123-4567',
-      description: 'Available Mon-Fri, 9AM-6PM'
+      title: 'Telefon',
+      details: '+48 123 456 789',
+      description: 'Pn-Pt, 9:00-17:00'
     },
     {
       icon: <MapPin className="text-primary" size={24} />,
-      title: 'Visit Us',
-      details: 'Creative District, Design City',
-      description: 'Schedule an appointment'
+      title: 'Lokalizacja',
+      details: 'Nowy Dwór Mazowiecki',
+      description: 'Obsługujemy całe Mazowsze'
     }
   ];
 
@@ -102,13 +120,13 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-5xl md:text-6xl font-bold text-gradient mb-6">
-            Let's Create
+            Stwórzmy Razem
             <br />
-            Something Amazing
+            Coś Wyjątkowego
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to transform your brand? Get in touch and let's discuss how 
-            we can bring your vision to life.
+            Gotowy na transformację swojej marki? Skontaktuj się z nami i przedyskutujmy, 
+            jak możemy tchnąć życie w Twoją wizję.
           </p>
         </motion.div>
 
@@ -121,7 +139,7 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-8">Get In Touch</h3>
+            <h3 className="text-2xl font-bold mb-8">Skontaktuj się z nami</h3>
             
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
@@ -155,13 +173,13 @@ const Contact = () => {
             >
               <div className="flex items-center gap-3 mb-4">
                 <CheckCircle size={24} />
-                <span className="text-lg font-semibold">Why Choose Us?</span>
+                <span className="text-lg font-semibold">Dlaczego My?</span>
               </div>
               <ul className="space-y-2 text-sm">
-                <li>✓ 24-hour response guarantee</li>
-                <li>✓ Unlimited revisions included</li>
-                <li>✓ 98% client satisfaction rate</li>
-                <li>✓ Award-winning design team</li>
+                <li>✓ Odpowiedź w ciągu 24 godzin</li>
+                <li>✓ Nieograniczone korekty</li>
+                <li>✓ 98% satysfakcji klientów</li>
+                <li>✓ Doświadczony zespół designerów</li>
               </ul>
             </motion.div>
           </motion.div>
@@ -177,33 +195,33 @@ const Contact = () => {
           >
             <Card className="bg-card border-border">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Start Your Project</h3>
+                <h3 className="text-2xl font-bold mb-6">Rozpocznij Swój Projekt</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        Full Name *
+                        Imię i Nazwisko *
                       </label>
                       <Input
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        placeholder="Your full name"
+                        placeholder="Twoje imię i nazwisko"
                         required
                         className="bg-input border-border focus:border-primary transition-smooth"
                       />
                     </div>
                     <div>
                       <label className="block text-sm font-medium mb-2">
-                        Email Address *
+                        Adres Email *
                       </label>
                       <Input
                         name="email"
                         type="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        placeholder="your@email.com"
+                        placeholder="twoj@email.com"
                         required
                         className="bg-input border-border focus:border-primary transition-smooth"
                       />
@@ -212,26 +230,26 @@ const Contact = () => {
 
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      Company Name
+                      Nazwa Firmy
                     </label>
                     <Input
                       name="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      placeholder="Your company name"
+                      placeholder="Nazwa Twojej firmy"
                       className="bg-input border-border focus:border-primary transition-smooth"
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      Project Details *
+                      Szczegóły Projektu *
                     </label>
                     <Textarea
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="Tell us about your project, goals, and timeline..."
+                      placeholder="Opisz swój projekt, cele i harmonogram..."
                       rows={6}
                       required
                       className="bg-input border-border focus:border-primary transition-smooth resize-none"
@@ -246,12 +264,12 @@ const Contact = () => {
                     {isSubmitting ? (
                       <div className="flex items-center gap-2">
                         <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Sending Message...
+                        Wysyłanie wiadomości...
                       </div>
                     ) : (
                       <div className="flex items-center gap-2">
                         <Send size={20} />
-                        Send Message
+                        Wyślij Wiadomość
                       </div>
                     )}
                   </Button>

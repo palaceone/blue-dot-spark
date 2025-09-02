@@ -7,6 +7,7 @@ import Projects from '@/components/Projects';
 import About from '@/components/About';
 import Reviews from '@/components/Reviews';
 import FAQ from '@/components/FAQ';
+import Kompetencje from '@/components/Kompetencje';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -30,6 +31,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <Projects />
+      <Kompetencje />
       <About />
       <Reviews />
       <FAQ />

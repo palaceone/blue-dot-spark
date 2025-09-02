@@ -24,18 +24,23 @@ const Navigation = () => {
   }, [isMenuOpen]);
 
   const menuItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'About', href: '#about' },
-    { name: 'Reviews', href: '#reviews' },
+    { name: 'Start', href: '#home' },
+    { name: 'Projekty', href: '/projekty' },
+    { name: 'Kompetencje', href: '#kompetencje' },
+    { name: 'O Nas', href: '#about' },
+    { name: 'Opinie', href: '#reviews' },
     { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Kontakt', href: '#contact' }
   ];
 
   const handleMenuClick = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('/')) {
+      window.location.href = href;
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsMenuOpen(false);
   };
