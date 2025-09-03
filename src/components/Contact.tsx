@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Circle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -91,20 +91,8 @@ const Contact = () => {
     {
       icon: <Mail className="text-primary" size={24} />,
       title: 'Email',
-      details: 'kontakt@wavesstudio.pl',
+      details: 'pawel@waves.cafe',
       description: 'Napisz do nas w każdej chwili'
-    },
-    {
-      icon: <Phone className="text-accent" size={24} />,
-      title: 'Telefon',
-      details: '+48 123 456 789',
-      description: 'Pn-Pt, 9:00-17:00'
-    },
-    {
-      icon: <MapPin className="text-primary" size={24} />,
-      title: 'Lokalizacja',
-      details: 'Nowy Dwór Mazowiecki',
-      description: 'Obsługujemy całe Mazowsze'
     }
   ];
 
@@ -119,6 +107,23 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <motion.div
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.7, 1, 0.7]
+              }}
+              transition={{ 
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="w-4 h-4 rounded-full bg-blue-500"
+            />
+            <span className="text-white bg-gradient-to-r from-blue-500 to-white bg-clip-text text-transparent font-medium">
+              Otwarci na nowe projekty
+            </span>
+          </div>
           <h2 className="text-5xl md:text-6xl font-bold text-gradient mb-6">
             Stwórzmy Razem
             <br />
@@ -173,14 +178,11 @@ const Contact = () => {
             >
               <div className="flex items-center gap-3 mb-4">
                 <CheckCircle size={24} />
-                <span className="text-lg font-semibold">Dlaczego My?</span>
+                <span className="text-lg font-semibold">Gwarantujemy</span>
               </div>
-              <ul className="space-y-2 text-sm">
-                <li>✓ Odpowiedź w ciągu 24 godzin</li>
-                <li>✓ Nieograniczone korekty</li>
-                <li>✓ 98% satysfakcji klientów</li>
-                <li>✓ Doświadczony zespół designerów</li>
-              </ul>
+              <div className="text-center">
+                <p className="text-lg font-medium">✓ Odpowiedź w ciągu 24 godzin</p>
+              </div>
             </motion.div>
           </motion.div>
 
