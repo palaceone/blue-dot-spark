@@ -1,73 +1,125 @@
-# Welcome to your Lovable project
+# WAVES - Portfolio Studio
 
-## Project info
+Nowoczesne portfolio studio kreatywnego zbudowane w React + TypeScript z integracją Supabase.
 
-**URL**: https://lovable.dev/projects/65f31ebd-f673-4b9a-9dce-af4d81f21bd2
+## 🚀 Szybki start w StackBlitz
 
-## How can I edit this code?
+### Opcja 1: Import z GitHub
+1. Otwórz [stackblitz.com](https://stackblitz.com)
+2. Kliknij "Import from GitHub"
+3. Wklej URL tego repozytorium
+4. StackBlitz automatycznie zainstaluje zależności i uruchomi projekt
 
-There are several ways of editing your application.
+### Opcja 2: Bezpośredni link
+Kliknij tutaj aby otworzyć projekt w StackBlitz:
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/[username]/[repo-name])
 
-**Use Lovable**
+## 🛠️ Lokalna instalacja
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/65f31ebd-f673-4b9a-9dce-af4d81f21bd2) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# Klonuj repozytorium
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Zainstaluj zależności
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Skopiuj plik środowiskowy
+cp .env.example .env
+
+# Uruchom development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🗄️ Konfiguracja Supabase
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Projekt używa Supabase jako backend. Aby skonfigurować:
 
-**Use GitHub Codespaces**
+1. **Zmienne środowiskowe** już są ustawione w `.env.example`
+2. **Tabele w bazie danych:**
+   - `contact_submissions` - formularz kontaktowy
+   - `user_roles` - role użytkowników
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+3. **RLS Policies** są już skonfigurowane w projekcie Supabase
 
-## What technologies are used for this project?
+## 🌐 Deployment
 
-This project is built with:
+### Lovable (Zalecane)
+Otwórz [Lovable](https://lovable.dev/projects/65f31ebd-f673-4b9a-9dce-af4d81f21bd2) i kliknij Share → Publish.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Inne platformy
 
-## How can I deploy this project?
+#### Netlify
+```bash
+npm run build
+# Przeciągnij folder dist na netlify.com
+```
 
-Simply open [Lovable](https://lovable.dev/projects/65f31ebd-f673-4b9a-9dce-af4d81f21bd2) and click on Share -> Publish.
+#### Vercel
+```bash
+npm install -g vercel
+vercel --prod
+```
 
-## Can I connect a custom domain to my Lovable project?
+#### Własny serwer
+```bash
+npm run build
+# Skopiuj zawartość folderu dist na serwer
+```
 
-Yes, you can!
+## 📦 Struktura projektu
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```
+src/
+├── components/          # Komponenty UI
+│   ├── ui/             # Komponenty Shadcn/ui
+│   ├── ContactSlideForm.tsx
+│   ├── Hero.tsx
+│   ├── Navigation.tsx
+│   └── ...
+├── pages/              # Strony aplikacji
+│   ├── Index.tsx       # Strona główna
+│   ├── DihoProject.tsx
+│   ├── VirtualityProject.tsx
+│   └── EcommerceProject.tsx
+├── integrations/       # Integracje
+│   └── supabase/       # Konfiguracja Supabase
+├── hooks/              # Custom hooks
+├── lib/                # Utilities
+└── main.tsx           # Entry point
+```
+
+## 🎨 Funkcjonalności
+
+- ✅ Responsywne portfolio z animacjami GSAP
+- ✅ Formularz kontaktowy z Supabase
+- ✅ Dynamiczne podstrony projektów
+- ✅ Wysuwający się formularz kontaktowy
+- ✅ Dark/Light mode support
+- ✅ SEO optimized
+- ✅ TypeScript
+
+## 🔧 Dostępne komendy
+
+```bash
+npm run dev          # Development server
+npm run build        # Build dla produkcji
+npm run preview      # Preview build lokalnie
+npm run lint         # Linting
+npm run type-check   # TypeScript checking
+```
+
+## 📄 Dokumentacja
+
+- [STACKBLITZ.md](STACKBLITZ.md) - Przewodnik StackBlitz
+- [DEPLOYMENT.md](DEPLOYMENT.md) - Deployment na różnych platformach
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Jak współtworzyć projekt
+
+## 🌍 Browser Support
+
+- Chrome/Chromium 88+
+- Firefox 85+
+- Safari 14+
+- Edge 88+
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
