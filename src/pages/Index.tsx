@@ -5,7 +5,7 @@ import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import VideoSection from '@/components/VideoSection';
-import ImageUploadGuide from '@/components/ImageUploadGuide';
+
 import About from '@/components/About';
 import Reviews from '@/components/Reviews';
 import FAQ from '@/components/FAQ';
@@ -34,7 +34,7 @@ const Index = () => {
       <Hero />
       <Projects />
       <VideoSection />
-      <ImageUploadGuide />
+      
       <Kompetencje />
       <About />
       <Reviews />
