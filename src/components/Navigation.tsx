@@ -171,7 +171,7 @@ const Navigation = () => {
                   {menuItems.map((item, index) => (
                     <motion.button
                       key={item.name}
-                      className="block text-left text-3xl lg:text-4xl font-bold text-white hover:text-blue-400 transition-colors py-2 group"
+                      className="block text-left text-3xl lg:text-4xl font-bold text-white hover:text-gray-300 transition-colors py-2 group"
                       onClick={() => handleMenuClick(item.href)}
                       initial={{ opacity: 0, x: -50 }}
                       animate={{ 
@@ -186,7 +186,7 @@ const Navigation = () => {
                     >
                       <span className="relative">
                         {item.name}
-                        <div className="absolute inset-0 bg-white/5 rounded-lg blur-lg group-hover:bg-blue-400/20 transition-all duration-500 -z-10" />
+                        <div className="absolute inset-0 bg-white/5 rounded-lg blur-lg group-hover:bg-black/30 transition-all duration-500 -z-10" />
                       </span>
                     </motion.button>
                   ))}
