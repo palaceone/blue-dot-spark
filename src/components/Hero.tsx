@@ -5,11 +5,11 @@ import { Waves, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SplashCursor } from './SplashCursor';
 import { GradientBlob } from './GradientBlob';
-import { TextReveal, SplitText } from './TextReveal';
+import { TextReveal } from './TextReveal';
 import { FloatingParticles } from './FloatingParticles';
 import { MagneticButton } from './MagneticButton';
 import { InteractiveCard } from './InteractiveCard';
-import BlurText from './BlurText';
+import SplitText from './SplitText';
 
 const Hero = () => {
   const waveRef = useRef<HTMLDivElement>(null);
@@ -195,13 +195,20 @@ const Hero = () => {
         {/* Enhanced Main Text with Split Animation */}
         <div ref={textRef} className="max-w-5xl mx-auto">
           <div className="mb-8">
-            <BlurText
+            <SplitText
               text="Grafika & Video"
-              delay={100}
-              animateBy="words"
-              direction="top"
               className="hero-text text-gradient text-center"
-              onAnimationComplete={() => console.log('Grafika & Video animation completed!')}
+              delay={100}
+              duration={0.6}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-100px"
+              textAlign="center"
+              tag="h1"
+              onLetterAnimationComplete={() => console.log('All letters have animated!')}
             />
           </div>
           
