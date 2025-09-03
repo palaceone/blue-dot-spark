@@ -1,91 +1,103 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 
-interface BlurTextProps {
-  text: string;
-  animateBy?: 'words' | 'letters';
-  direction?: 'top' | 'bottom';
-  delay?: number;
-  stepDuration?: number;
-  threshold?: number;
-  rootMargin?: string;
-  onAnimationComplete?: () => void;
-  className?: string;
-}
+const buildKeyframes = (from, steps) => {
+  const keys = new Set([...Object.keys(from), ...steps.flatMap(s => Object.keys(s))]);
 
-export const BlurText = ({
-  text,
+  const keyframes = {};
+  keys.forEach(k => {
+    keyframes[k] = [from[k], ...steps.map(s => s[k])];
+  });
+  return keyframes;
+};
+
+const BlurText = ({
+  text = '',
+  delay = 200,
+  className = '',
   animateBy = 'words',
   direction = 'top',
-  delay = 200,
-  stepDuration = 0.35,
   threshold = 0.1,
   rootMargin = '0px',
-  onAnimationComplete,
-  className = ''
-}: BlurTextProps) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  animationFrom = null,
+  animationTo = null,
+  easing = t => t,
+  onAnimationComplete = null,
+  stepDuration = 0.35
+}) => {
+  const elements = animateBy === 'words' ? text.split(' ') : text.split('');
+  const [inView, setInView] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
+    if (!ref.current) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setInView(true);
+          observer.unobserve(ref.current);
         }
       },
       { threshold, rootMargin }
     );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
+    observer.observe(ref.current);
     return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [threshold, rootMargin]);
 
-  const items = animateBy === 'words' ? text.split(' ') : text.split('');
+  const defaultFrom = useMemo(
+    () =>
+      direction === 'top' ? { filter: 'blur(10px)', opacity: 0, y: -50 } : { filter: 'blur(10px)', opacity: 0, y: 50 },
+    [direction]
+  );
 
-  const variants = {
-    hidden: {
-      filter: 'blur(10px)',
-      opacity: 0,
-      y: direction === 'top' ? -20 : 20,
-    },
-    visible: {
-      filter: 'blur(0px)',
-      opacity: 1,
-      y: 0,
-    },
-  };
+  const defaultTo = useMemo(
+    () => [
+      {
+        filter: 'blur(5px)',
+        opacity: 0.5,
+        y: direction === 'top' ? 5 : -5
+      },
+      { filter: 'blur(0px)', opacity: 1, y: 0 }
+    ],
+    [direction]
+  );
 
-  useEffect(() => {
-    if (isVisible && onAnimationComplete) {
-      const totalDelay = items.length * (delay / 1000) + stepDuration;
-      const timer = setTimeout(onAnimationComplete, totalDelay * 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [isVisible, items.length, delay, stepDuration, onAnimationComplete]);
+  const fromSnapshot = animationFrom ?? defaultFrom;
+  const toSnapshots = animationTo ?? defaultTo;
+
+  const stepCount = toSnapshots.length + 1;
+  const totalDuration = stepDuration * (stepCount - 1);
+  const times = Array.from({ length: stepCount }, (_, i) => (stepCount === 1 ? 0 : i / (stepCount - 1)));
 
   return (
-    <div ref={ref} className={className}>
-      {items.map((item, index) => (
-        <motion.span
-          key={index}
-          variants={variants}
-          initial="hidden"
-          animate={isVisible ? 'visible' : 'hidden'}
-          transition={{
-            duration: stepDuration,
-            delay: isVisible ? index * (delay / 1000) : 0,
-            ease: 'easeOut',
-          }}
-          className="inline-block"
-          style={{ marginRight: animateBy === 'words' ? '0.25em' : '0' }}
-        >
-          {item}
-        </motion.span>
-      ))}
-    </div>
+    <p ref={ref} className={className} style={{ display: 'flex', flexWrap: 'wrap' }}>
+      {elements.map((segment, index) => {
+        const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
+
+        const spanTransition = {
+          duration: totalDuration,
+          times,
+          delay: (index * delay) / 1000,
+          ease: easing
+        };
+
+        return (
+          <motion.span
+            className="inline-block will-change-[transform,filter,opacity]"
+            key={index}
+            initial={fromSnapshot}
+            animate={inView ? animateKeyframes : fromSnapshot}
+            transition={spanTransition}
+            onAnimationComplete={index === elements.length - 1 ? onAnimationComplete : undefined}
+          >
+            {segment === ' ' ? '\u00A0' : segment}
+            {animateBy === 'words' && index < elements.length - 1 && '\u00A0'}
+          </motion.span>
+        );
+      })}
+    </p>
   );
 };
+
+export default BlurText;

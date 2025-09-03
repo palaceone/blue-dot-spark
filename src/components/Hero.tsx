@@ -9,7 +9,7 @@ import { TextReveal, SplitText } from './TextReveal';
 import { FloatingParticles } from './FloatingParticles';
 import { MagneticButton } from './MagneticButton';
 import { InteractiveCard } from './InteractiveCard';
-import { BlurText } from './BlurText';
+import BlurText from './BlurText';
 import { CircularText } from './CircularText';
 
 const Hero = () => {
@@ -199,12 +199,7 @@ const Hero = () => {
               onClick={scrollToProjects}
             >
               <Play className="mr-2" size={20} />
-              <BlurText 
-                text="Zobacz Nasze Prace"
-                className="font-medium"
-                animateBy="words"
-                delay={50}
-              />
+              Zobacz Nasze Prace
             </MagneticButton>
             
             <MagneticButton 
