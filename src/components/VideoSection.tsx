@@ -47,24 +47,27 @@ const VideoSection = () => {
 
   const videos = [
     {
-      title: 'DIHO - Morda Nie Szklanka Tour',
-      description: 'Animacja promocyjna koncertu z dynamicznymi elementami graficznymi',
-      vimeoId: '123456789', // Placeholder ID
-      category: 'Animacja Koncertowa',
+      title: 'CarHunter - Reel',
+      description: 'Profesjonalna animacja promocyjna dla branży motoryzacyjnej',
+      vimeoId: '1079354732',
+      vimeoHash: '87edcda862',
+      category: 'Reel Promocyjny',
       icon: <Video className="text-primary" size={20} />
     },
     {
-      title: 'Ecommerce Studio - Brand Video',
-      description: 'Animowana prezentacja identyfikacji wizualnej marki',
-      vimeoId: '987654321', // Placeholder ID
-      category: 'Brand Animation',
+      title: 'CarHunter - Auta z małą akcyzą',
+      description: 'Animowany materiał informacyjny o ofertach samochodowych',
+      vimeoId: '1077913463',
+      vimeoHash: '0d66a10d4e',
+      category: 'Content Marketing',
       icon: <Play className="text-accent" size={20} />
     },
     {
-      title: 'Virality - Logo Animation',
-      description: 'Dynamiczna animacja logo z efektami świetlnymi',
-      vimeoId: '456789123', // Placeholder ID
-      category: 'Logo Animation',
+      title: 'Rolka Popeyes',
+      description: 'Dynamiczna animacja dla popularnej sieci restauracji',
+      vimeoId: '1078299214',
+      vimeoHash: '70d3ad0663',
+      category: 'Social Media',
       icon: <Video className="text-primary" size={20} />
     }
   ];
@@ -108,32 +111,18 @@ const VideoSection = () => {
               <Card className="bg-card border-border overflow-hidden h-full transition-smooth hover:shadow-primary group-hover:border-primary/30 hover-lift magnetic-hover shimmer">
                 {/* Video Embed Container */}
                 <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-accent/20 overflow-hidden">
-                  {/* Placeholder for Vimeo embed */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary/20 transition-smooth">
-                        <Play className="text-white ml-1" size={24} />
-                      </div>
-                      <p className="text-white/70 text-sm">
-                        Vimeo Video #{video.vimeoId}
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* Uncomment and replace with actual Vimeo IDs when ready */}
-                  {/* 
                   <iframe 
-                    src={`https://player.vimeo.com/video/${video.vimeoId}`}
+                    src={`https://player.vimeo.com/video/${video.vimeoId}?h=${video.vimeoHash}&badge=0&autopause=0&player_id=0&app_id=58479`}
                     className="w-full h-full"
                     frameBorder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture" 
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+                    referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                     title={video.title}
                   />
-                  */}
                   
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-smooth" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-smooth pointer-events-none" />
                 </div>
 
                 <CardContent className="p-6">
