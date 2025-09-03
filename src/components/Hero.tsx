@@ -176,9 +176,10 @@ const Hero = () => {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 >
-                  <Waves 
-                    className="text-white text-4xl group-hover:text-primary transition-colors duration-500" 
-                    size={56}
+                  <img 
+                    src="/lovable-uploads/ee759693-0429-4705-a01a-923ee065591a.png" 
+                    alt="Logo" 
+                    className="w-14 h-14 object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                 </motion.div>
                 <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/30 transition-all duration-500" />

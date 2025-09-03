@@ -193,8 +193,25 @@ const Navigation = () => {
                 </nav>
               </div>
 
-              {/* Right Side - Subtle pattern */}
-              <div className="w-1/2 lg:w-2/3 bg-gradient-to-l from-gray-900/30 to-transparent"></div>
+              {/* Right Side - Logo */}
+              <div className="w-1/2 lg:w-2/3 flex items-center justify-center">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ 
+                    opacity: isMenuOpen ? 1 : 0, 
+                    scale: isMenuOpen ? 1 : 0.8 
+                  }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  className="relative"
+                >
+                  <img 
+                    src="/lovable-uploads/ee759693-0429-4705-a01a-923ee065591a.png" 
+                    alt="Logo" 
+                    className="w-64 h-64 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full blur-3xl animate-pulse" />
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         )}
