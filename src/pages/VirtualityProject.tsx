@@ -29,15 +29,12 @@ const VirtualityProject = () => {
 
   const projectDetails = {
     title: 'Virality - Logo Design',
-    client: 'Virality Tech',
+    client: 'Virality.pl',
     category: 'Identyfikacja Wizualna',
     year: '2024',
-    duration: '6 tygodni',
+    duration: '2 tygodnie',
     challenge: 'Stworzyliśmy logo dla firmy będącej inkubatorem innowacji cyfrowych, miejscem gdzie technologia spotyka się z kreatywnością. Działają na styku różnych obszarów internetu, łącząc w sobie elementy agencji, platformy doradczej i inkubatora startupów. Ich celem jest wspieranie projektów i inicjatyw, które przynoszą nową wartość w cyfrowym ekosystemie. Skupiają się na identyfikacji i rozwijaniu potencjału w zakresie cyfrowego biznesu - od platform SaaS po strategie personal branding.',
-    solution: 'Zaprojektowaliśmy logo zgodnie ze specyfikacją klienta, które pasuje do profilu biznesu bez odniesień do konkretnej lokalizacji. Wykorzystaliśmy nowoczesne, minimalistyczne formy odzwierciedlające charakter firmy technologicznej działającej w przestrzeni cyfrowej.',
-    results: [
-      { metric: 'Silne', description: 'Zaznaczenie marki na rynku SaaS' }
-    ]
+    solution: 'Zaprojektowaliśmy logo zgodnie ze specyfikacją klienta, które pasuje do profilu biznesu. Wykorzystaliśmy nowoczesne, minimalistyczne formy odzwierciedlające charakter firmy technologicznej działającej w przestrzeni cyfrowej.'
   };
 
   return (
@@ -151,46 +148,6 @@ const VirtualityProject = () => {
         </div>
       </section>
 
-      {/* Results */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold mb-6 text-gradient">Rezultaty</h2>
-            <p className="text-xl text-muted-foreground">
-              Projekt przyniósł wymierne korzyści dla marki Virality
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {projectDetails.results.map((result, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="text-center p-8 h-full bg-card border-border hover:border-primary/30 transition-smooth">
-                  <CardContent className="p-0">
-                    <div className="text-4xl font-black text-gradient mb-4">
-                      {result.metric}
-                    </div>
-                    <p className="text-muted-foreground">
-                      {result.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Next Project CTA */}
       <section className="py-16 bg-secondary/20">
