@@ -140,27 +140,6 @@ const Reviews = () => {
           ))}
         </div>
 
-        {/* Statistics */}
-        <motion.div
-          className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="p-6">
-            <div className="text-4xl font-bold text-gradient mb-2">100%</div>
-            <div className="text-muted-foreground">Zadowolenie Klientów</div>
-          </div>
-          <div className="p-6">
-            <div className="text-4xl font-bold text-gradient mb-2">3+</div>
-            <div className="text-muted-foreground">Zadowolonych Klientów</div>
-          </div>
-          <div className="p-6">
-            <div className="text-4xl font-bold text-gradient mb-2">5★</div>
-            <div className="text-muted-foreground">Średnia Ocena</div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
