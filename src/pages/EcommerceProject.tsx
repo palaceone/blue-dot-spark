@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -7,12 +7,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useNavigate } from 'react-router-dom';
+import ContactSlideForm from '@/components/ContactSlideForm';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const EcommerceProject = () => {
   const navigate = useNavigate();
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -31,8 +33,8 @@ const EcommerceProject = () => {
     title: 'Studio ecommerce',
     client: 'Studio ecommerce',
     category: 'Branding',
-    year: '2024',
-    duration: '8 tygodni',
+    year: '2025',
+    duration: '3 tygodnie',
     challenge: 'Klient potrzebował profesjonalnego logo dla swojego studia e-commerce. Firma pomaga przedsiębiorcom w osiągnięciu sukcesu w handlu internetowym w ciągu 90 dni, dzieląc się wieloletnim doświadczeniem w branży.',
     solution: 'Zaprojektowaliśmy minimalistyczne logo, które odzwierciedla profesjonalizm i skuteczność firmy w wprowadzaniu klientów do świata e-commerce.'
   };
@@ -45,7 +47,7 @@ const EcommerceProject = () => {
           <div className="flex items-center justify-between">
             <Button
               variant="ghost"
-              onClick={() => navigate(-1)}
+              onClick={() => navigate('/')}
               className="flex items-center gap-2 hover:bg-accent"
             >
               <ArrowLeft size={20} />
@@ -167,7 +169,7 @@ const EcommerceProject = () => {
             <Button
               size="lg"
               className="bg-white text-black hover:bg-gray-100 px-6 sm:px-10 py-4 sm:py-6 text-base sm:text-lg font-medium"
-              onClick={() => navigate('/#contact')}
+              onClick={() => setIsContactFormOpen(true)}
             >
               <Users className="mr-2" size={20} />
               Rozpocznij Projekt
@@ -175,6 +177,11 @@ const EcommerceProject = () => {
           </motion.div>
         </div>
       </section>
+
+      <ContactSlideForm 
+        isOpen={isContactFormOpen} 
+        onClose={() => setIsContactFormOpen(false)} 
+      />
     </div>
   );
 };
