@@ -3,6 +3,12 @@ import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { Waves, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { SplashCursor } from './SplashCursor';
+import { GradientBlob } from './GradientBlob';
+import { TextReveal, SplitText } from './TextReveal';
+import { FloatingParticles } from './FloatingParticles';
+import { MagneticButton } from './MagneticButton';
+import { InteractiveCard } from './InteractiveCard';
 
 const Hero = () => {
   const waveRef = useRef<HTMLDivElement>(null);
@@ -133,80 +139,98 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
-      {/* Animated Grid Background */}
-      <div ref={gridRef} className="absolute inset-0 z-0 opacity-40">
+      <SplashCursor />
+      <FloatingParticles count={40} />
+      
+      {/* Enhanced Animated Grid Background */}
+      <div ref={gridRef} className="absolute inset-0 z-0 opacity-30">
         {generateAnimatedGrid()}
       </div>
 
-      {/* Floating Animated Orb */}
+      {/* Enhanced Floating Animated Blobs */}
       <div className="absolute inset-0 z-5">
-        <div className="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl animate-[float_8s_ease-in-out_infinite] top-1/4 left-1/4" />
-        <div className="absolute w-64 h-64 bg-blue-400/5 rounded-full blur-2xl animate-[float_12s_ease-in-out_infinite_reverse] bottom-1/4 right-1/3" />
+        <GradientBlob className="w-96 h-96 top-1/4 left-1/4" />
+        <GradientBlob className="w-64 h-64 bottom-1/4 right-1/3" />
+        <GradientBlob className="w-80 h-80 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
       </div>
 
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-transparent to-gray-900/50 z-10" />
+      {/* Enhanced gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-950/20 to-black z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--primary)/0.1)_0%,transparent_50%)] z-10" />
 
       <div className="container mx-auto px-4 text-center relative z-20">
-        {/* Waves Logo */}
-        <motion.div 
-          className="flex items-center justify-center mb-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <div ref={waveRef} className="relative group">
-            <div className="w-16 h-16 flex items-center justify-center relative">
-              <Waves 
-                className="text-white text-4xl group-hover:text-blue-400 transition-colors duration-500" 
-                size={48}
-              />
-              <div className="absolute inset-0 bg-white/5 rounded-full blur-lg group-hover:bg-blue-400/20 transition-all duration-500" />
-            </div>
-          </div>
-          <motion.h1 
-            className="ml-6 text-5xl font-bold text-white tracking-wider"
-            initial={{ x: -30, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
+        {/* Enhanced Waves Logo */}
+        <InteractiveCard className="flex items-center justify-center mb-16">
+          <motion.div 
+            className="flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
           >
-            WAVES
-          </motion.h1>
-        </motion.div>
+            <div ref={waveRef} className="relative group">
+              <div className="w-20 h-20 flex items-center justify-center relative">
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                >
+                  <Waves 
+                    className="text-white text-4xl group-hover:text-primary transition-colors duration-500" 
+                    size={56}
+                  />
+                </motion.div>
+                <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/30 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500" />
+              </div>
+            </div>
+            <motion.h1 
+              className="ml-6 text-6xl font-bold text-white tracking-wider bg-gradient-to-r from-white to-primary bg-clip-text text-transparent"
+              initial={{ x: -30, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+            >
+              WAVES
+            </motion.h1>
+          </motion.div>
+        </InteractiveCard>
 
-        {/* Main Text */}
+        {/* Enhanced Main Text with Split Animation */}
         <div ref={textRef} className="max-w-5xl mx-auto">
-          <h2 className="hero-text text-gradient mb-8">
-            Grafika
-            <br />
-            <span className="text-white">& Video</span>
-          </h2>
+          <div className="mb-8">
+            <SplitText
+              text="Grafika & Video"
+              className="hero-text text-gradient"
+              delay={0.5}
+            />
+          </div>
           
-          <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Tworzymy projekty graficzne i treści wideo, które 
-            <span className="text-white font-medium"> robią wrażenie</span> w Nowym Dworze Mazowieckim i okolicach.
-          </p>
+          <TextReveal delay={1.5} className="mb-12">
+            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              Tworzymy projekty graficzne i treści wideo, które 
+              <span className="text-white font-medium"> robią wrażenie</span> w Nowym Dworze Mazowieckim i okolicach.
+            </p>
+          </TextReveal>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Button 
-              variant="default" 
-              size="lg" 
-              className="bg-white text-black hover:bg-gray-100 px-10 py-6 text-lg font-medium transition-all duration-300 group"
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 2, duration: 0.8 }}
+          >
+            <MagneticButton 
+              className="bg-gradient-to-r from-primary to-primary/80 text-white hover:from-primary/80 hover:to-primary px-10 py-6 text-lg font-medium transition-all duration-300 rounded-full shadow-lg hover:shadow-primary/25 border border-primary/30"
               onClick={scrollToProjects}
             >
-              <Play className="mr-2 group-hover:text-primary transition-colors duration-300" size={20} />
+              <Play className="mr-2" size={20} />
               Zobacz Nasze Prace
-            </Button>
+            </MagneticButton>
             
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="glass-effect hover:bg-white/10 border border-white/20 text-white hover:border-white/40 px-10 py-6 text-lg font-medium transition-all duration-300"
+            <MagneticButton 
+              className="glass-effect hover:bg-white/10 border-2 border-white/30 text-white hover:border-primary/50 px-10 py-6 text-lg font-medium transition-all duration-300 rounded-full backdrop-blur-sm"
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Rozpocznij Projekt
-            </Button>
-          </div>
+            </MagneticButton>
+          </motion.div>
         </div>
       </div>
     </section>

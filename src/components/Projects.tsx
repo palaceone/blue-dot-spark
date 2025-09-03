@@ -5,6 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink, Zap, Palette, Target } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useNavigate } from 'react-router-dom';
+import { InteractiveCard } from './InteractiveCard';
+import { MagneticButton } from './MagneticButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -100,67 +102,123 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid with Enhanced Animations */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div
+            <InteractiveCard
               key={project.title}
-              ref={addToRefs}
               className="group cursor-pointer"
-              whileHover={{ y: -8, scale: 1.02 }}
-              transition={{ duration: 0.4, type: "spring", stiffness: 300 }}
-              onClick={() => {
-                if (project.title === 'Virality - Logo Design') navigate('/project/virality-logo');
-                else if (project.title === 'Ecommerce Studio') navigate('/project/ecommerce-studio');
-                else if (project.title === 'DIHO - Grafika Koncertowa') navigate('/project/diho-tour');
-                else navigate('/projekty');
-              }}
             >
-              <Card className="bg-card border-border overflow-hidden h-full transition-smooth hover:shadow-primary group-hover:border-primary/30 hover-lift magnetic-hover shimmer">
-                <div className="relative overflow-hidden">
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                    <div className="text-6xl font-bold text-white/10">
-                      {project.title.charAt(0)}
+              <motion.div
+                ref={addToRefs}
+                whileHover={{ y: -12 }}
+                transition={{ duration: 0.4, type: "spring", stiffness: 300 }}
+                onClick={() => {
+                  if (project.title === 'Virality - Logo Design') navigate('/project/virality-logo');
+                  else if (project.title === 'Ecommerce Studio') navigate('/project/ecommerce-studio');
+                  else if (project.title === 'DIHO - Grafika Koncertowa') navigate('/project/diho-tour');
+                  else navigate('/projekty');
+                }}
+              >
+                <Card className="bg-card border-border overflow-hidden h-full transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 group-hover:border-primary/50 relative">
+                  {/* Animated background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                  
+                  <div className="relative overflow-hidden">
+                    <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
+                      {/* Animated letter */}
+                      <motion.div 
+                        className="text-6xl font-bold text-white/20"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {project.title.charAt(0)}
+                      </motion.div>
+                      
+                      {/* Floating particles on hover */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        {[...Array(8)].map((_, i) => (
+                          <motion.div
+                            key={i}
+                            className="absolute w-1 h-1 bg-primary/60 rounded-full"
+                            style={{
+                              left: `${20 + i * 10}%`,
+                              top: `${30 + (i % 3) * 20}%`,
+                            }}
+                            animate={{
+                              y: [0, -20, 0],
+                              opacity: [0, 1, 0],
+                            }}
+                            transition={{
+                              duration: 2,
+                              delay: i * 0.1,
+                              repeat: Infinity,
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Enhanced overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-end p-4">
+                      <motion.div
+                        initial={{ scale: 0, rotate: -90 }}
+                        whileHover={{ scale: 1, rotate: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ExternalLink className="text-white" size={20} />
+                      </motion.div>
                     </div>
                   </div>
-                  
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-smooth flex items-end justify-end p-4">
-                    <ExternalLink className="text-white" size={20} />
-                  </div>
-                </div>
 
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    {project.icon}
-                    <span className="text-sm font-medium text-primary">
-                      {project.category}
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-smooth">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-accent">
-                      {project.results}
-                    </span>
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-bounce">
-                      <ExternalLink size={14} className="text-primary group-hover:text-primary-foreground" />
+                  <CardContent className="p-6 relative z-10">
+                    <motion.div 
+                      className="flex items-center gap-3 mb-3"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <motion.div
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        {project.icon}
+                      </motion.div>
+                      <span className="text-sm font-medium text-primary">
+                        {project.category}
+                      </span>
+                    </motion.div>
+                    
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-all duration-300">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex items-center justify-between">
+                      <motion.span 
+                        className="text-sm font-medium text-accent"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        {project.results}
+                      </motion.span>
+                      <motion.div 
+                        className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-all duration-300"
+                        whileHover={{ scale: 1.2, rotate: 90 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ExternalLink size={14} className="text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                      </motion.div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </InteractiveCard>
           ))}
         </div>
 
-        {/* Call to Action */}
+        {/* Enhanced Call to Action */}
         <motion.div 
           className="text-center mt-16"
           initial={{ opacity: 0, y: 30 }}
@@ -168,17 +226,21 @@ const Projects = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <p className="text-lg text-muted-foreground mb-6">
+          <motion.p 
+            className="text-lg text-muted-foreground mb-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
             Gotowy zobaczyć tutaj swój projekt?
-          </p>
-          <motion.button
-            className="px-8 py-4 bg-gradient-primary text-white font-medium rounded-full shadow-primary hover:shadow-accent transition-bounce"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          </motion.p>
+          
+          <MagneticButton
+            className="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white font-medium rounded-full shadow-lg hover:shadow-primary/30 transition-all duration-300 border border-primary/30"
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Rozpocznij Swój Projekt
-          </motion.button>
+            <span className="relative z-10">Rozpocznij Swój Projekt</span>
+          </MagneticButton>
         </motion.div>
       </div>
     </section>

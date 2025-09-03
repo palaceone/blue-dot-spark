@@ -48,6 +48,16 @@ All colors MUST be HSL.
 
     /* Glass morphism */
     --glass-bg: 0 0% 95% / 0.05;
+
+    /* Enhanced gradients for new animations */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--waves-blue)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--waves-purple)), hsl(var(--waves-pink)));
+    --gradient-glow: radial-gradient(circle, hsl(var(--primary) / 0.3) 0%, transparent 70%);
+    
+    /* Animation variables */
+    --animation-speed-slow: 3s;
+    --animation-speed-medium: 1.5s;
+    --animation-speed-fast: 0.5s;
     --glass-border: 0 0% 95% / 0.1;
     
     /* Gradients - B&W only */
