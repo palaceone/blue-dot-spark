@@ -33,12 +33,10 @@ const VirtualityProject = () => {
     category: 'Identyfikacja Wizualna',
     year: '2024',
     duration: '6 tygodni',
-    challenge: 'Stworzenie nowoczesnego logo dla firmy technologicznej z Nowego Dworu Mazowieckiego, które odzwierciedla innowacyjność i profesjonalizm.',
-    solution: 'Zaprojektowaliśmy minimalistyczne logo łączące elementy technologiczne z lokalnymi inspiracjami. Wykorzystaliśmy czyste linie i geometryczne formy.',
+    challenge: 'Stworzyliśmy logo dla firmy będącej inkubatorem innowacji cyfrowych, miejscem gdzie technologia spotyka się z kreatywnością. Działają na styku różnych obszarów internetu, łącząc w sobie elementy agencji, platformy doradczej i inkubatora startupów. Ich celem jest wspieranie projektów i inicjatyw, które przynoszą nową wartość w cyfrowym ekosystemie. Skupiają się na identyfikacji i rozwijaniu potencjału w zakresie cyfrowego biznesu - od platform SaaS po strategie personal branding.',
+    solution: 'Zaprojektowaliśmy logo zgodnie ze specyfikacją klienta, które pasuje do profilu biznesu bez odniesień do konkretnej lokalizacji. Wykorzystaliśmy nowoczesne, minimalistyczne formy odzwierciedlające charakter firmy technologicznej działającej w przestrzeni cyfrowej.',
     results: [
-      { metric: '+180%', description: 'Wzrost rozpoznawalności marki' },
-      { metric: '+95%', description: 'Pozytywne opinie klientów' },
-      { metric: '+150%', description: 'Wzrost zainteresowania mediów' }
+      { metric: 'Silne', description: 'Zaznaczenie marki na rynku SaaS' }
     ]
   };
 
@@ -105,10 +103,11 @@ const VirtualityProject = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="text-center">
-              <Zap size={80} className="text-white/30 mx-auto mb-4" />
-              <p className="text-white/50 text-lg">Virality Logo Design</p>
-            </div>
+            <img 
+              src="/lovable-uploads/b2674288-41bd-40a4-9304-16d28f8f89e8.png" 
+              alt="Virality Logo Design" 
+              className="max-w-full max-h-full object-contain"
+            />
           </motion.div>
         </div>
       </section>
@@ -129,7 +128,7 @@ const VirtualityProject = () => {
               </p>
               <div className="mt-6 flex items-center gap-3">
                 <Eye className="text-primary" size={24} />
-                <span className="font-medium">Kluczowe cele: Nowoczesność, Profesjonalizm, Lokalność</span>
+                <span className="font-medium">Kluczowe cele: Innowacyjność, Cyfrowa transformacja, SaaS</span>
               </div>
             </motion.div>
 
