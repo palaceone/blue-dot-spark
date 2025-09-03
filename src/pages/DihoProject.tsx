@@ -55,7 +55,7 @@ const DihoProject = () => {
                 <span className="hidden sm:inline">Powrót</span>
               </Button>
             <div className="flex items-center gap-3">
-              <Waves className="text-primary" size={20} />
+              <img src="/lovable-uploads/ce865688-3f99-4f4b-84eb-e904bc75ceba.png" alt="WAVES" className="h-5 w-auto" />
               <span className="font-bold text-lg sm:text-xl">WAVES</span>
             </div>
             </div>
