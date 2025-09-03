@@ -171,15 +171,18 @@ const Hero = () => {
             transition={{ duration: 1 }}
           >
             <div ref={waveRef} className="relative group">
-              <div className="w-32 h-32 flex items-center justify-center relative">
+              <div className="w-40 h-40 flex items-center justify-center relative">
                 <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  animate={{ 
+                    y: [0, -10, 0],
+                    scale: [1, 1.05, 1]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 >
                   <img 
                     src="/lovable-uploads/ee759693-0429-4705-a01a-923ee065591a.png" 
                     alt="Logo" 
-                    className="w-24 h-24 object-contain group-hover:scale-110 transition-transform duration-500"
+                    className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                 </motion.div>
                 <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/30 transition-all duration-500" />
@@ -211,15 +214,15 @@ const Hero = () => {
             transition={{ delay: 2, duration: 0.8 }}
           >
             <MagneticButton 
-              className="bg-gradient-to-r from-primary to-primary/80 text-white hover:from-primary/80 hover:to-primary px-10 py-6 text-lg font-medium transition-all duration-300 rounded-full shadow-lg hover:shadow-primary/25 border border-primary/30 flex items-center justify-center"
+              className="gradient-hero-button text-black hover:scale-105 px-8 py-4 text-base font-semibold transition-all duration-300 rounded-full shadow-xl hover:shadow-primary/25 border border-primary/20 flex items-center justify-center backdrop-blur-sm"
               onClick={scrollToProjects}
             >
-              <Play className="mr-2" size={20} />
+              <Play className="mr-2" size={18} />
               Zobacz Nasze Prace
             </MagneticButton>
             
             <MagneticButton 
-              className="glass-effect hover:bg-white/10 border-2 border-white/30 text-white hover:border-primary/50 px-10 py-6 text-lg font-medium transition-all duration-300 rounded-full backdrop-blur-sm"
+              className="glass-effect hover:bg-white/5 border border-white/20 text-white hover:border-primary/40 px-8 py-4 text-base font-medium transition-all duration-300 rounded-full backdrop-blur-md gradient-outline hover:shadow-lg"
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Rozpocznij Projekt

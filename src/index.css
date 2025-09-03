@@ -50,8 +50,11 @@ All colors MUST be HSL.
     --glass-bg: 0 0% 95% / 0.05;
 
     /* Enhanced gradients for new animations */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--waves-blue)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--waves-purple)), hsl(var(--waves-pink)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary) / 0.8), hsl(var(--waves-blue) / 0.6));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--waves-purple) / 0.7), hsl(var(--waves-pink) / 0.6));
+    --gradient-hero-button: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--primary) / 0.7));
+    --gradient-outline: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--waves-blue) / 0.1));
+    --gradient-text: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--waves-blue)));
     --gradient-glow: radial-gradient(circle, hsl(var(--primary) / 0.3) 0%, transparent 70%);
     
     /* Animation variables */
@@ -60,8 +63,7 @@ All colors MUST be HSL.
     --animation-speed-fast: 0.5s;
     --glass-border: 0 0% 95% / 0.1;
     
-    /* Gradients - B&W only */
-    --gradient-primary: linear-gradient(135deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 15%) 100%);
+    /* Gradients - Enhanced B&W with subtle colors */
     --gradient-dark: linear-gradient(135deg, hsl(0, 0%, 3%) 0%, hsl(0, 0%, 8%) 100%);
     
     /* Shadows - Subtle B&W */
@@ -169,9 +171,20 @@ All colors MUST be HSL.
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-muted-foreground bg-clip-text text-transparent;
+    background: var(--gradient-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     line-height: 1.2 !important;
     padding-bottom: 0.1em;
+  }
+
+  .gradient-hero-button {
+    background: var(--gradient-hero-button);
+  }
+
+  .gradient-outline {
+    background: var(--gradient-outline);
   }
 
   .hero-text {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Instagram, Facebook, Camera } from 'lucide-react';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -193,8 +193,8 @@ const Navigation = () => {
                 </nav>
               </div>
 
-              {/* Right Side - Logo */}
-              <div className="w-1/2 lg:w-2/3 flex items-center justify-center">
+              {/* Right Side - Logo and Social Media */}
+              <div className="w-1/2 lg:w-2/3 flex flex-col items-center justify-center space-y-8">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ 
@@ -210,6 +210,39 @@ const Navigation = () => {
                     className="w-64 h-64 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full blur-3xl animate-pulse" />
+                </motion.div>
+
+                {/* Social Media Icons */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ 
+                    opacity: isMenuOpen ? 1 : 0, 
+                    y: isMenuOpen ? 0 : 20 
+                  }}
+                  transition={{ delay: 0.6, duration: 0.5 }}
+                  className="flex space-x-6"
+                >
+                  {[
+                    { icon: Instagram, href: "#", label: "Instagram" },
+                    { icon: Facebook, href: "#", label: "Facebook" },
+                    { icon: Camera, href: "#", label: "TikTok" },
+                  ].map((social, index) => (
+                    <motion.a
+                      key={social.label}
+                      href={social.href}
+                      className="w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 hover:border-white/40 transition-all duration-300"
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ 
+                        opacity: isMenuOpen ? 1 : 0, 
+                        scale: isMenuOpen ? 1 : 0 
+                      }}
+                      transition={{ delay: 0.7 + index * 0.1, duration: 0.3 }}
+                    >
+                      <social.icon size={20} />
+                    </motion.a>
+                  ))}
                 </motion.div>
               </div>
             </div>

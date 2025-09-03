@@ -61,18 +61,11 @@ const Kompetencje = () => {
       features: ['Ulotki i broszury', 'Banery internetowe', 'Materiały POS']
     },
     {
-      title: 'Produkcja Video',
+      title: 'Animacje & Video',
       description: 'Kompleksowa produkcja treści wideo - od koncepcji po postprodukcję.',
       icon: <Video className="text-white" size={28} />,
       gradient: 'from-red-500 to-orange-500',
       features: ['Filmy promocyjne', 'Social media content', 'Animacje 2D/3D']
-    },
-    {
-      title: 'Fotografia Produktowa',
-      description: 'Profesjonalne sesje zdjęciowe produktów dla e-commerce i marketingu.',
-      icon: <Camera className="text-white" size={28} />,
-      gradient: 'from-green-500 to-teal-500',
-      features: ['Zdjęcia produktowe', 'Lifestyle photography', 'Obróbka zdjęć']
     },
     {
       title: 'Projektowanie Opakowań',
@@ -116,52 +109,76 @@ const Kompetencje = () => {
           </p>
         </motion.div>
 
-        {/* Kompetencje Grid */}
+        {/* Interactive Service Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {kompetencje.map((item, index) => (
             <motion.div
               key={item.title}
               ref={addToRefs}
-              className="group"
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
+              className="group cursor-pointer"
+              whileHover={{ y: -15, scale: 1.02 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              <Card className="bg-card border-border overflow-hidden h-full transition-smooth hover:shadow-accent group-hover:border-primary/30 color-reveal">
-                <CardContent className="p-0">
-                  {/* Icon Header */}
-                  <div className={`bg-gradient-to-r ${item.gradient} p-6 relative overflow-hidden`}>
-                    <div className="absolute inset-0 bg-black/20" />
-                    <div className="relative z-10 flex items-center justify-between">
-                      <div className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                        {item.icon}
-                      </div>
-                      <div className="text-white/80 text-sm font-medium">
-                        WAVES
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-smooth">
+              <div className="bg-card/50 border border-white/10 rounded-2xl overflow-hidden h-full backdrop-blur-md hover:bg-card/70 hover:border-white/20 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
+                {/* Animated Header with Gradient */}
+                <div className={`bg-gradient-to-br ${item.gradient} p-8 relative overflow-hidden`}>
+                  <div className="absolute inset-0 bg-black/30" />
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.8 }}
+                  />
+                  
+                  <div className="relative z-10">
+                    <motion.div 
+                      className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mb-4 group-hover:bg-white/30 transition-all duration-300"
+                      whileHover={{ rotate: 10, scale: 1.1 }}
+                    >
+                      {item.icon}
+                    </motion.div>
+                    
+                    <h3 className="text-gradient text-xl font-bold text-white mb-2">
                       {item.title}
                     </h3>
-                    
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {item.description}
-                    </p>
-                    
-                    {/* Features List */}
-                    <ul className="space-y-2">
-                      {item.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+
+                <div className="p-6">
+                  <p className="text-muted-foreground mb-6 leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                    {item.description}
+                  </p>
+                  
+                  {/* Interactive Features List */}
+                  <ul className="space-y-3">
+                    {item.features.map((feature, featureIndex) => (
+                      <motion.li 
+                        key={featureIndex} 
+                        className="flex items-center text-sm text-muted-foreground group-hover:text-foreground/70 transition-colors duration-300"
+                        initial={{ opacity: 0.7 }}
+                        whileHover={{ opacity: 1, x: 5 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <motion.div 
+                          className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-accent mr-3"
+                          whileHover={{ scale: 1.5 }}
+                          transition={{ duration: 0.2 }}
+                        />
+                        {feature}
+                      </motion.li>
+                    ))}
+                  </ul>
+
+                  {/* Hover Action */}
+                  <motion.div
+                    className="mt-6 pt-4 border-t border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={{ y: 10 }}
+                    whileHover={{ y: 0 }}
+                  >
+                    <span className="text-sm text-primary font-medium">Dowiedz się więcej →</span>
+                  </motion.div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
