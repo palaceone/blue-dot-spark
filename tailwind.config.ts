@@ -120,6 +120,10 @@ export default {
 				'slideRight': {
 					'0%': { transform: 'translateX(-100px)', opacity: '0' },
 					'100%': { transform: 'translateX(0)', opacity: '1' }
+				},
+				'shine': {
+					'0%': { 'background-position': '100%' },
+					'100%': { 'background-position': '-100%' }
 				}
 			},
 			animation: {
@@ -128,7 +132,8 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'pulse-slow': 'pulse 3s ease-in-out infinite',
 				'slide-up': 'slideUp 0.6s ease-out',
-				'slide-right': 'slideRight 0.6s ease-out'
+				'slide-right': 'slideRight 0.6s ease-out',
+				'shine': 'shine 5s linear infinite'
 			}
 		}
 	},

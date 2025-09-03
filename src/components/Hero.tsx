@@ -9,7 +9,7 @@ import { TextReveal } from './TextReveal';
 import { FloatingParticles } from './FloatingParticles';
 import { MagneticButton } from './MagneticButton';
 import { InteractiveCard } from './InteractiveCard';
-import SplitText from './SplitText';
+import ShinyText from './ShinyText';
 
 const Hero = () => {
   const waveRef = useRef<HTMLDivElement>(null);
@@ -192,30 +192,52 @@ const Hero = () => {
           </motion.div>
         </InteractiveCard>
 
-        {/* Enhanced Main Text with Split Animation */}
         <div ref={textRef} className="max-w-5xl mx-auto">
           <div className="mb-8">
-            <SplitText
-              text="Grafika & Video"
+            <motion.h1 
               className="hero-text text-gradient text-center"
-              delay={100}
-              duration={0.6}
-              ease="power3.out"
-              splitType="chars"
-              from={{ opacity: 0, y: 40 }}
-              to={{ opacity: 1, y: 0 }}
-              threshold={0.1}
-              rootMargin="-100px"
-              textAlign="center"
-              tag="h1"
-              onLetterAnimationComplete={() => console.log('All letters have animated!')}
-            />
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
+              Grafika & Video
+            </motion.h1>
+            <motion.div 
+              className="text-center mt-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+            >
+              <span className="text-white/60 text-lg">* </span>
+              <ShinyText 
+                text="kreacja" 
+                speed={3} 
+                className="text-lg" 
+              />
+              <span className="text-white/60 text-lg"> * </span>
+              <ShinyText 
+                text="montaż" 
+                speed={3} 
+                className="text-lg" 
+              />
+              <span className="text-white/60 text-lg"> * </span>
+              <ShinyText 
+                text="efekty" 
+                speed={3} 
+                className="text-lg" 
+              />
+              <span className="text-white/60 text-lg"> *</span>
+            </motion.div>
           </div>
           
           <TextReveal delay={1.5} className="mb-12">
             <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
               Tworzymy projekty graficzne i treści wideo, które 
-              <span className="text-white font-medium"> robią wrażenie</span> w Nowym Dworze Mazowieckim i okolicach.
+              <ShinyText 
+                text=" robią wrażenie" 
+                speed={2} 
+                className="text-white font-medium"
+              /> w Nowym Dworze Mazowieckim i okolicach.
             </p>
           </TextReveal>
 
