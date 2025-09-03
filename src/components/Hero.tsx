@@ -232,12 +232,14 @@ const Hero = () => {
           
           <TextReveal delay={1.5} className="mb-12">
             <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              Tworzymy projekty graficzne i treści wideo, które 
+              Tworzymy projekty graficzne i treści wideo, które{' '}
+              <span className="text-white/60">* </span>
               <ShinyText 
-                text=" robią wrażenie" 
+                text="robią wrażenie" 
                 speed={2} 
                 className="text-white font-medium"
-              /> w Nowym Dworze Mazowieckim i okolicach.
+              />
+              <span className="text-white/60"> *</span> w Nowym Dworze Mazowieckim i okolicach.
             </p>
           </TextReveal>
 
