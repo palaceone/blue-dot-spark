@@ -38,10 +38,10 @@ const About = () => {
   }, []);
 
   const stats = [
-    { number: '150+', label: 'Ukończonych Projektów', icon: <Award className="text-primary" size={32} /> },
-    { number: '98%', label: 'Zadowolenie Klientów', icon: <Users className="text-accent" size={32} /> },
-    { number: '5+', label: 'Lat Doświadczenia', icon: <Lightbulb className="text-primary" size={32} /> },
-    { number: '24h', label: 'Średni Czas Odpowiedzi', icon: <Rocket className="text-accent" size={32} /> }
+    { number: '20+', label: 'Ukończonych Projektów', icon: <Award className="text-primary" size={32} /> },
+    { number: '100%', label: 'Zadowolenie Klientów', icon: <Users className="text-accent" size={32} /> },
+    { number: '3+', label: 'Lat Doświadczenia', icon: <Lightbulb className="text-primary" size={32} /> },
+    { number: '15+', label: 'Zadowolonych Klientów', icon: <Rocket className="text-accent" size={32} /> }
   ];
 
   const addToStatsRefs = (el: HTMLDivElement | null) => {
@@ -160,7 +160,7 @@ const About = () => {
                 <p className="text-muted-foreground">{process.desc}</p>
                 
                 {index < 3 && (
-                  <div className="hidden md:block absolute top-8 -right-4 w-8 h-0.5 bg-gradient-to-r from-primary to-accent" />
+                  <div className="hidden md:block absolute top-8 -right-4 w-8 h-0.5 bg-white" />
                 )}
               </motion.div>
             ))}
