@@ -214,7 +214,7 @@ const Hero = () => {
             transition={{ delay: 2, duration: 0.8 }}
           >
             <MagneticButton 
-              className="gradient-hero-button text-black hover:scale-105 px-8 py-4 text-base font-semibold transition-all duration-300 rounded-full shadow-xl hover:shadow-primary/25 border border-primary/20 flex items-center justify-center backdrop-blur-sm"
+              className="glass-effect hover:bg-black/20 border border-gray-600 text-white hover:border-gray-500 px-8 py-4 text-base font-semibold transition-all duration-300 rounded-full backdrop-blur-md gradient-outline hover:shadow-lg flex items-center justify-center"
               onClick={scrollToProjects}
             >
               <Play className="mr-2" size={18} />

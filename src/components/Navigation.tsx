@@ -92,7 +92,7 @@ const Navigation = () => {
             {/* Advanced Animated Grid Background */}
             <div className="absolute inset-0 z-0 overflow-hidden">
               {/* Gradient Base */}
-              <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900/80 to-black" />
+              <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/30" />
               
               {/* Animated Grid Lines */}
               <div className="absolute inset-0">

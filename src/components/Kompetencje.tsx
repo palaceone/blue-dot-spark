@@ -110,7 +110,7 @@ const Kompetencje = () => {
         </motion.div>
 
         {/* Interactive Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {kompetencje.map((item, index) => (
             <motion.div
               key={item.title}
