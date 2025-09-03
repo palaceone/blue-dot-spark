@@ -213,4 +213,75 @@ All colors MUST be HSL.
     33% { transform: translateY(-10px) rotate(5deg); }
     66% { transform: translateY(5px) rotate(-3deg); }
   }
+
+  /* Enhanced hover effects inspired by hover.dev */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-2;
+    box-shadow: 0 20px 40px -12px hsl(var(--primary) / 0.3);
+  }
+
+  .magnetic-hover {
+    @apply transition-transform duration-200 ease-out;
+  }
+
+  .magnetic-hover:hover {
+    animation: magnetic-hover 0.6s ease;
+  }
+
+  @keyframes magnetic-hover {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.05) rotate(1deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+
+  /* Shimmer effect */
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .shimmer::before {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* Staggered fade animations */
+  .stagger-fade-up {
+    animation: stagger-fade-up 0.8s ease-out forwards;
+  }
+
+  @keyframes stagger-fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Float animation for orbs */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    25% { transform: translateY(-20px) translateX(10px); }
+    50% { transform: translateY(-30px) translateX(-5px); }
+    75% { transform: translateY(-10px) translateX(-15px); }
+  }
 }

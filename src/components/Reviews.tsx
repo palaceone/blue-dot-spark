@@ -59,48 +59,6 @@ const Reviews = () => {
       review: 'Polecam serdecznie, wszystko o co poprosiłem zostało zrobione perfekcyjnie. Świetny kontakt, szybka realizacja i efekt przewyższający oczekiwania.',
       rating: 5,
       avatar: '✨'
-    },
-    {
-      name: 'Anna Kowalska',
-      position: 'CEO, TechFlow Polska',
-      review: 'WAVES całkowicie przekształciło naszą identyfikację wizualną. Minimalistyczne podejście, które zastosowali, idealnie uchwyciło naszą wizję, znacząco poprawiając naszą obecność na rynku.',
-      rating: 5,
-      avatar: '🚀'
-    },
-    {
-      name: 'Marcin Nowak',
-      position: 'Założyciel, Artisan Goods',
-      review: 'Współpraca z WAVES była przełomowa. Ich projekt opakowań zwiększył naszą sprzedaż o 65% w zaledwie trzy miesiące. Niesamowita dbałość o szczegóły!',
-      rating: 5,
-      avatar: '☕'
-    },
-    {
-      name: 'Ewa Wiśniewska',
-      position: 'Dyrektor Marketingu, InnovateLab',
-      review: 'Zespół WAVES przekroczył nasze oczekiwania. Ich strategiczne podejście do myślenia projektowego pomogło nam połączyć się z naszą publicznością w sposób, jakiego nigdy nie wyobrażaliśmy sobie.',
-      rating: 5,
-      avatar: '💡'
-    },
-    {
-      name: 'Dawid Kaczmarek',
-      position: 'Dyrektor Kreatywny, Pulse Media',
-      review: 'Wyjątkowa praca! Zdolność WAVES do przekładania złożonych idei na proste, eleganckie projekty jest niezrównana. Nasze wskaźniki konwersji nigdy nie były wyższe.',
-      rating: 5,
-      avatar: '🎨'
-    },
-    {
-      name: 'Katarzyna Zielińska',
-      position: 'Brand Manager, EcoVibe',
-      review: 'Profesjonalni, kreatywni i ukierunkowani na rezultaty. WAVES pomogło nam wprowadzić naszą ekologiczną markę z projektami, które naprawdę rezonują z naszą świadomą ekologicznie publicznością.',
-      rating: 5,
-      avatar: '🌱'
-    },
-    {
-      name: 'Aleksander Wolski',
-      position: 'Założyciel Startupu, NextGen',
-      review: 'Od koncepcji po realizację, WAVES towarzyszyło nam na każdym kroku. Ich projekty pomogły nam zabezpieczyć finansowanie Series A, czyniąc naszą wizję namacalną.',
-      rating: 5,
-      avatar: '⚡'
     }
   ];
 
@@ -137,10 +95,10 @@ const Reviews = () => {
               key={review.name}
               ref={addToRefs}
               className="group"
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              transition={{ duration: 0.3, type: "spring", stiffness: 200 }}
             >
-              <Card className="bg-card border-border h-full transition-smooth hover:shadow-primary hover:border-primary/30 relative overflow-hidden">
+              <Card className="bg-card border-border h-full transition-smooth hover:shadow-primary hover:border-primary/30 relative overflow-hidden hover-lift magnetic-hover shimmer">
                 {/* Quote Icon */}
                 <div className="absolute top-4 right-4 opacity-10">
                   <Quote size={48} className="text-primary" />
@@ -191,11 +149,11 @@ const Reviews = () => {
           viewport={{ once: true }}
         >
           <div className="p-6">
-            <div className="text-4xl font-bold text-gradient mb-2">98%</div>
+            <div className="text-4xl font-bold text-gradient mb-2">100%</div>
             <div className="text-muted-foreground">Zadowolenie Klientów</div>
           </div>
           <div className="p-6">
-            <div className="text-4xl font-bold text-gradient mb-2">150+</div>
+            <div className="text-4xl font-bold text-gradient mb-2">3+</div>
             <div className="text-muted-foreground">Zadowolonych Klientów</div>
           </div>
           <div className="p-6">

@@ -76,30 +76,66 @@ const Hero = () => {
     }
   };
 
-  // Generate grid dots
-  const generateGridDots = () => {
-    const dots = [];
-    for (let i = 0; i < 100; i++) {
-      dots.push(
-        <div 
-          key={i} 
-          className="grid-dot"
+  // Generate animated grid
+  const generateAnimatedGrid = () => {
+    const elements = [];
+    
+    // Vertical lines
+    for (let i = 0; i < 25; i++) {
+      elements.push(
+        <div
+          key={`v-${i}`}
+          className="absolute w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent animate-pulse"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 3}s`
+            left: `${(i / 24) * 100}%`,
+            height: '100%',
+            animationDelay: `${i * 0.1}s`,
+            animationDuration: `${3 + Math.random() * 2}s`
           }}
         />
       );
     }
-    return dots;
+    
+    // Horizontal lines
+    for (let i = 0; i < 20; i++) {
+      elements.push(
+        <div
+          key={`h-${i}`}
+          className="absolute h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent animate-pulse"
+          style={{
+            top: `${(i / 19) * 100}%`,
+            width: '100%',
+            animationDelay: `${i * 0.15}s`,
+            animationDuration: `${3 + Math.random() * 2}s`
+          }}
+        />
+      );
+    }
+    
+    // Intersection dots
+    for (let i = 0; i < 50; i++) {
+      elements.push(
+        <div
+          key={`dot-${i}`}
+          className="absolute w-1 h-1 bg-primary/30 rounded-full animate-ping"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${2 + Math.random() * 3}s`
+          }}
+        />
+      );
+    }
+    
+    return elements;
   };
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
       {/* Animated Grid Background */}
-      <div ref={gridRef} className="absolute inset-0 z-0 opacity-30">
-        {generateGridDots()}
+      <div ref={gridRef} className="absolute inset-0 z-0 opacity-40">
+        {generateAnimatedGrid()}
       </div>
 
       {/* Floating Animated Orb */}

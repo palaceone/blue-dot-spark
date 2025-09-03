@@ -107,8 +107,8 @@ const Projects = () => {
               key={project.title}
               ref={addToRefs}
               className="group cursor-pointer"
-              whileHover={{ y: -10 }}
-              transition={{ duration: 0.3 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ duration: 0.4, type: "spring", stiffness: 300 }}
               onClick={() => {
                 if (project.title === 'Virality - Logo Design') navigate('/project/virality-logo');
                 else if (project.title === 'Ecommerce Studio') navigate('/project/ecommerce-studio');
@@ -116,7 +116,7 @@ const Projects = () => {
                 else navigate('/projekty');
               }}
             >
-              <Card className="bg-card border-border overflow-hidden h-full transition-smooth hover:shadow-primary group-hover:border-primary/30">
+              <Card className="bg-card border-border overflow-hidden h-full transition-smooth hover:shadow-primary group-hover:border-primary/30 hover-lift magnetic-hover shimmer">
                 <div className="relative overflow-hidden">
                   <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                     <div className="text-6xl font-bold text-white/10">
