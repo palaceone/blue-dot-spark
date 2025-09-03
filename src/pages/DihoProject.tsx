@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowLeft, Target, Music, TrendingUp, Users } from 'lucide-react';
+import { ArrowLeft, Waves, Music, TrendingUp, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -54,10 +54,10 @@ const DihoProject = () => {
                 <ArrowLeft size={20} />
                 <span className="hidden sm:inline">Powrót</span>
               </Button>
-              <div className="flex items-center gap-3">
-                <Target className="text-primary" size={20} />
-                <span className="font-bold text-lg sm:text-xl">WAVES</span>
-              </div>
+            <div className="flex items-center gap-3">
+              <Waves className="text-primary" size={20} />
+              <span className="font-bold text-lg sm:text-xl">WAVES</span>
+            </div>
             </div>
           </div>
         </header>
