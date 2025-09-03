@@ -59,20 +59,22 @@ const Hero = () => {
     // Animated grid
     if (gridRef.current) {
       const dots = gridRef.current.querySelectorAll('.grid-dot');
-      gsap.fromTo(dots,
-        { scale: 0, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 0.3,
-          duration: 0.5,
-          stagger: {
-            amount: 2,
-            from: "center",
-            grid: "auto"
-          },
-          ease: 'power2.out'
-        }
-      );
+      if (dots.length > 0) {
+        gsap.fromTo(dots,
+          { scale: 0, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 0.3,
+            duration: 0.5,
+            stagger: {
+              amount: 2,
+              from: "center",
+              grid: "auto"
+            },
+            ease: 'power2.out'
+          }
+        );
+      }
     }
   }, []);
 
@@ -203,6 +205,8 @@ const Hero = () => {
               delay={150}
               animateBy="words"
               direction="top"
+              threshold={0.1}
+              onAnimationComplete={() => console.log('BlurText animation completed!')}
             />
           </div>
           
