@@ -9,6 +9,7 @@ import { TextReveal, SplitText } from './TextReveal';
 import { FloatingParticles } from './FloatingParticles';
 import { MagneticButton } from './MagneticButton';
 import { InteractiveCard } from './InteractiveCard';
+import BlurText from './BlurText';
 
 const Hero = () => {
   const waveRef = useRef<HTMLDivElement>(null);
@@ -196,10 +197,12 @@ const Hero = () => {
         {/* Enhanced Main Text with Split Animation */}
         <div ref={textRef} className="max-w-5xl mx-auto">
           <div className="mb-8">
-            <SplitText
+            <BlurText
               text="Grafika & Video"
               className="hero-text text-gradient"
-              delay={0.5}
+              delay={150}
+              animateBy="words"
+              direction="top"
             />
           </div>
           
