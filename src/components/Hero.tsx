@@ -199,15 +199,9 @@ const Hero = () => {
         {/* Enhanced Main Text with Split Animation */}
         <div ref={textRef} className="max-w-5xl mx-auto">
           <div className="mb-8">
-            <BlurText
-              text="Grafika & Video"
-              className="hero-text text-gradient"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              threshold={0.1}
-              onAnimationComplete={() => console.log('BlurText animation completed!')}
-            />
+            <h1 className="hero-text text-gradient animate-fade-in">
+              Grafika & Video
+            </h1>
           </div>
           
           <TextReveal delay={1.5} className="mb-12">
@@ -224,7 +218,7 @@ const Hero = () => {
             transition={{ delay: 2, duration: 0.8 }}
           >
             <MagneticButton 
-              className="bg-gradient-to-r from-primary to-primary/80 text-white hover:from-primary/80 hover:to-primary px-10 py-6 text-lg font-medium transition-all duration-300 rounded-full shadow-lg hover:shadow-primary/25 border border-primary/30"
+              className="bg-gradient-to-r from-primary to-primary/80 text-white hover:from-primary/80 hover:to-primary px-10 py-6 text-lg font-medium transition-all duration-300 rounded-full shadow-lg hover:shadow-primary/25 border border-primary/30 flex items-center justify-center"
               onClick={scrollToProjects}
             >
               <Play className="mr-2" size={20} />
