@@ -158,7 +158,7 @@ const Hero = () => {
       </div>
 
       {/* Enhanced gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-black z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/20 to-black/30 z-10" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--primary)/0.1)_0%,transparent_50%)] z-10" />
 
       <div className="container mx-auto px-4 text-center relative z-20">
