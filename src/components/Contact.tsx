@@ -110,17 +110,21 @@ const Contact = () => {
           <div className="flex items-center justify-center gap-3 mb-6">
             <motion.div
               animate={{ 
-                scale: [1, 1.2, 1],
-                opacity: [0.7, 1, 0.7]
+                scale: [1, 1.3, 1],
+                boxShadow: [
+                  "0 0 0px rgba(255, 255, 255, 0)",
+                  "0 0 20px rgba(255, 255, 255, 0.8)",
+                  "0 0 0px rgba(255, 255, 255, 0)"
+                ]
               }}
               transition={{ 
                 duration: 2,
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="w-4 h-4 rounded-full bg-blue-500"
+              className="w-2 h-2 rounded-full bg-white"
             />
-            <span className="text-white bg-gradient-to-r from-blue-500 to-white bg-clip-text text-transparent font-medium">
+            <span className="text-white font-medium">
               Otwarci na nowe projekty
             </span>
           </div>
