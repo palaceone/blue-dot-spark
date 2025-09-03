@@ -195,16 +195,14 @@ const Hero = () => {
         {/* Enhanced Main Text with Split Animation */}
         <div ref={textRef} className="max-w-5xl mx-auto">
           <div className="mb-8">
-            <h1 className="hero-text text-gradient animate-fade-in">
-              <BlurText
-                text="Grafika & Video"
-                delay={100}
-                animateBy="words"
-                direction="top"
-                className="inline-block"
-                onAnimationComplete={() => console.log('Grafika & Video animation completed!')}
-              />
-            </h1>
+            <BlurText
+              text="Grafika & Video"
+              delay={100}
+              animateBy="words"
+              direction="top"
+              className="hero-text text-gradient text-center"
+              onAnimationComplete={() => console.log('Grafika & Video animation completed!')}
+            />
           </div>
           
           <TextReveal delay={1.5} className="mb-12">
