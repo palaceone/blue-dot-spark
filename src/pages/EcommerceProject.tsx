@@ -33,8 +33,8 @@ const EcommerceProject = () => {
     category: 'Branding',
     year: '2024',
     duration: '8 tygodni',
-    challenge: 'Start w e-commerce nigdy nie był tak prosty. Dzięki wieloletniemu doświadczeniu jestem w stanie wprowadzić Cię w branżę handlu internetowego w zaledwie 90 dni. W trakcie całej swojej przygody dostrzegałem rzeczy które umykały innym.',
-    solution: 'Teraz całą tą wiedzą mogę podzielić się z Tobą. Zaprojektowaliśmy logo które odzwierciedla prostotę i skuteczność wprowadzania klientów w świat e-commerce.'
+    challenge: 'Wejście w e-commerce stanowi wyzwanie dla wielu przedsiębiorców. Klient potrzebował wsparcia w budowaniu kompleksowej strategii handlu internetowego oraz identyfikacji wizualnej, która pomoże mu w edukacji klientów o prostych ścieżkach rozwoju w branży e-commerce.',
+    solution: 'Stworzyliśmy logo oraz strategię komunikacji opartą na wieloletnim doświadczeniu w branży. Dzięki wypracowanym metodom pomagamy klientom osiągnąć sukces w e-commerce w ciągu 90 dni, dzieląc się wiedzą o najważniejszych aspektach handlu internetowego.'
   };
 
   return (
@@ -94,7 +94,7 @@ const EcommerceProject = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <motion.div
-            className="aspect-video bg-white rounded-2xl flex items-center justify-center shadow-2xl"
+            className="aspect-video bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl flex items-center justify-center shadow-2xl border border-border"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
