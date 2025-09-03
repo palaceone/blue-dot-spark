@@ -18,8 +18,8 @@ All colors MUST be HSL.
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 220 100% 60%; /* Blue */
-    --primary-foreground: 220 100% 98%;
+    --primary: 0 0% 95%; /* White */
+    --primary-foreground: 0 0% 5%; /* Black */
 
     --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 95%;
@@ -27,8 +27,8 @@ All colors MUST be HSL.
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 240 100% 65%; /* Purple-Blue */
-    --accent-foreground: 240 100% 98%;
+    --accent: 0 0% 25%;
+    --accent-foreground: 0 0% 95%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 95%;
@@ -50,7 +50,7 @@ All colors MUST be HSL.
     --glass-bg: 0 0% 95% / 0.05;
 
     /* Enhanced gradients for new animations */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--waves-blue)));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--waves-blue)));
     --gradient-accent: linear-gradient(135deg, hsl(var(--waves-purple)), hsl(var(--waves-pink)));
     --gradient-glow: radial-gradient(circle, hsl(var(--primary) / 0.3) 0%, transparent 70%);
     
@@ -60,10 +60,14 @@ All colors MUST be HSL.
     --animation-speed-fast: 0.5s;
     --glass-border: 0 0% 95% / 0.1;
     
+    /* Gradients - B&W only */
+    --gradient-primary: linear-gradient(135deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 15%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(0, 0%, 3%) 0%, hsl(0, 0%, 8%) 100%);
+    
     /* Shadows - Subtle B&W */
-    --shadow-primary: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
-    --shadow-accent: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
-    --shadow-glass: 0 8px 32px 0 hsl(0 0% 0% / 0.3);
+    --shadow-primary: 0 10px 30px -10px hsl(0, 0%, 0%, 0.5);
+    --shadow-accent: 0 10px 30px -10px hsl(0, 0%, 0%, 0.3);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -89,8 +93,8 @@ All colors MUST be HSL.
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 220 100% 60%; /* Blue */
-    --primary-foreground: 220 100% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 3%;
 
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;
@@ -98,8 +102,8 @@ All colors MUST be HSL.
     --muted: 0 0% 12%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 240 100% 65%; /* Purple-Blue */
-    --accent-foreground: 240 100% 98%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
@@ -140,12 +144,12 @@ All colors MUST be HSL.
     box-shadow: var(--shadow-glass);
   }
 
-  .gradient-hero {
-    background: var(--gradient-hero);
+  .gradient-primary {
+    background: var(--gradient-primary);
   }
 
-  .gradient-accent {
-    background: var(--gradient-accent);
+  .gradient-dark {
+    background: var(--gradient-dark);
   }
 
   .transition-smooth {
