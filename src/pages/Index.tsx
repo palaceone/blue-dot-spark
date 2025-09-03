@@ -4,12 +4,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
-import VideoSection from '@/components/VideoSection';
-
+import Kompetencje from '@/components/Kompetencje';
+import TrustedBySection from '@/components/TrustedBySection';
+import ServicesScrollStack from '@/components/ServicesScrollStack';
 import About from '@/components/About';
 import Reviews from '@/components/Reviews';
 import FAQ from '@/components/FAQ';
-import Kompetencje from '@/components/Kompetencje';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -32,9 +32,9 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation />
       <Hero />
+      <TrustedBySection />
       <Projects />
-      <VideoSection />
-      
+      <ServicesScrollStack />
       <Kompetencje />
       <About />
       <Reviews />

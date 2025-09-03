@@ -141,8 +141,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
-      <SplashCursor />
-      <FloatingParticles count={40} />
+      <FloatingParticles count={20} />
       
       {/* Enhanced Animated Grid Background */}
       <div ref={gridRef} className="absolute inset-0 z-0 opacity-30">
@@ -165,8 +164,7 @@ const Hero = () => {
         <div className="absolute top-8 left-8 z-30">
           <CircularText 
             text="WAVES•GRAFIKA•VIDEO•"
-            spinDuration={15}
-            onHover="speedUp"
+            spinDuration={30}
             className="text-primary"
           />
         </div>

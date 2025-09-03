@@ -41,10 +41,9 @@ export const FloatingParticles = ({ count = 20 }: { count?: number }) => {
             height: particle.size,
           }}
           animate={{
-            y: [0, -100, 0],
-            x: [0, 50, -50, 0],
-            opacity: [0, 1, 0],
-            scale: [0, 1, 0],
+            y: [0, -30, 0],
+            opacity: [0, 0.6, 0],
+            scale: [1, 1.1, 1],
           }}
           transition={{
             duration: particle.duration,

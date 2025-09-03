@@ -10,13 +10,12 @@ export const GradientBlob = ({ className = "", animate = true }: GradientBlobPro
     <motion.div
       className={`absolute rounded-full blur-3xl ${className}`}
       animate={animate ? {
-        x: [0, 100, -50, 0],
-        y: [0, -100, 50, 0],
-        scale: [1, 1.2, 0.8, 1],
-        rotate: [0, 180, 360],
+        x: [0, 50, -25, 0],
+        y: [0, -50, 25, 0],
+        scale: [1, 1.1, 0.9, 1],
       } : {}}
       transition={{
-        duration: 20,
+        duration: 15,
         repeat: Infinity,
         ease: "easeInOut",
       }}

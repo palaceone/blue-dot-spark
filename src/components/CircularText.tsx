@@ -55,7 +55,8 @@ export const CircularText = ({
   const normalTransition = {
     duration: spinDuration,
     repeat: Infinity,
-    ease: 'linear' as const
+    ease: 'linear' as const,
+    repeatType: 'loop' as const
   };
 
   return (

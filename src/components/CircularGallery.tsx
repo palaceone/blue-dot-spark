@@ -39,7 +39,8 @@ export const CircularGallery = ({
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
-      setRotation(prev => prev + e.deltaY * scrollSpeed * scrollEase);
+      const delta = e.deltaY * scrollSpeed * scrollEase;
+      setRotation(prev => prev + delta);
     };
 
     const gallery = galleryRef.current;
