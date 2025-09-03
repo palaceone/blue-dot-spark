@@ -49,13 +49,13 @@ All colors MUST be HSL.
     /* Glass morphism */
     --glass-bg: 0 0% 95% / 0.05;
 
-    /* Enhanced gradients for new animations */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary) / 0.8), hsl(var(--waves-blue) / 0.6));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--waves-purple) / 0.7), hsl(var(--waves-pink) / 0.6));
-    --gradient-hero-button: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--primary) / 0.7));
-    --gradient-outline: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--waves-blue) / 0.1));
-    --gradient-text: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--waves-blue)));
-    --gradient-glow: radial-gradient(circle, hsl(var(--primary) / 0.3) 0%, transparent 70%);
+    /* Enhanced gradients - Black & White only */
+    --gradient-primary: linear-gradient(135deg, hsl(0, 0%, 95%) 0%, hsl(0, 0%, 80%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(0, 0%, 20%) 0%, hsl(0, 0%, 10%) 100%);
+    --gradient-hero-button: linear-gradient(135deg, hsl(0, 0%, 95%) 0%, hsl(0, 0%, 85%) 100%);
+    --gradient-outline: linear-gradient(135deg, hsl(0, 0%, 100% / 0.1), hsl(0, 0%, 100% / 0.05));
+    --gradient-text: linear-gradient(135deg, hsl(0, 0%, 95%), hsl(0, 0%, 70%));
+    --gradient-glow: radial-gradient(circle, hsl(0, 0%, 100% / 0.3) 0%, transparent 70%);
     
     /* Animation variables */
     --animation-speed-slow: 3s;
@@ -63,7 +63,7 @@ All colors MUST be HSL.
     --animation-speed-fast: 0.5s;
     --glass-border: 0 0% 95% / 0.1;
     
-    /* Gradients - Enhanced B&W with subtle colors */
+    /* Gradients - B&W only */
     --gradient-dark: linear-gradient(135deg, hsl(0, 0%, 3%) 0%, hsl(0, 0%, 8%) 100%);
     
     /* Shadows - Subtle B&W */

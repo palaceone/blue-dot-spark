@@ -50,35 +50,35 @@ const Kompetencje = () => {
       title: 'Projekty Logo',
       description: 'Tworzenie unikalnych i zapadających w pamięć logo, które odzwierciedlają tożsamość Twojej marki.',
       icon: <Brush className="text-white" size={28} />,
-      gradient: 'from-purple-500 to-pink-500',
+      gradient: 'from-gray-800 to-gray-900',
       features: ['Identyfikacja wizualna', 'Wersje kolorystyczne', 'Adaptacje różnych formatów']
     },
     {
       title: 'Grafika Reklamowa',
       description: 'Projektowanie materiałów promocyjnych dla mediów drukowanych i cyfrowych.',
       icon: <Palette className="text-white" size={28} />,
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-gray-700 to-black',
       features: ['Ulotki i broszury', 'Banery internetowe', 'Materiały POS']
     },
     {
       title: 'Animacje & Video',
       description: 'Kompleksowa produkcja treści wideo - od koncepcji po postprodukcję.',
       icon: <Video className="text-white" size={28} />,
-      gradient: 'from-red-500 to-orange-500',
+      gradient: 'from-black to-gray-800',
       features: ['Filmy promocyjne', 'Social media content', 'Animacje 2D/3D']
     },
     {
       title: 'Projektowanie Opakowań',
       description: 'Kreatywne rozwiązania w zakresie designu opakowań i etykiet.',
       icon: <Layers className="text-white" size={28} />,
-      gradient: 'from-indigo-500 to-purple-500',
+      gradient: 'from-gray-900 to-black',
       features: ['Opakowania produktów', 'Etykiety', 'Design funkcjonalny']
     },
     {
       title: 'Grafika Koncertowa',
       description: 'Specjalizujemy się w projektowaniu plakatów i materiałów dla wydarzeń muzycznych.',
       icon: <Zap className="text-white" size={28} />,
-      gradient: 'from-yellow-500 to-red-500',
+      gradient: 'from-gray-600 to-gray-900',
       features: ['Plakaty koncertowe', 'Merchandise', 'Visual identity tour']
     }
   ];
