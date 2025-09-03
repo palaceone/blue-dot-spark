@@ -54,7 +54,7 @@ const Projects = () => {
       title: 'Virality - Logo Design',
       category: 'Identyfikacja Wizualna',
       description: 'Kompleksowy projekt logo dla firmy technologicznej z Nowego Dworu Mazowieckiego, uwzględniający nowoczesne trendy w designie.',
-      image: '/api/placeholder/600/400',
+      image: '/lovable-uploads/b2674288-41bd-40a4-9304-16d28f8f89e8.png',
       icon: <Zap className="text-primary" size={24} />,
       results: '+180% Rozpoznawalność Marki'
     },
@@ -70,7 +70,7 @@ const Projects = () => {
       title: 'DIHO - Grafika Koncertowa',
       category: 'Grafika Koncertowa',
       description: 'Projekt graficzny dla trasy koncertowej "Morda Nie Szklanka" - plakaty, banery i materiały promocyjne.',
-      image: '/api/placeholder/600/400',
+      image: '/lovable-uploads/ee759693-0429-4705-a01a-923ee065591a.png',
       icon: <Target className="text-primary" size={24} />,
       results: '+240% Zaangażowanie'
     }
@@ -124,16 +124,16 @@ const Projects = () => {
                   {/* Animated background gradient */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-all duration-500" />
                   
-                  <div className="relative overflow-hidden">
-                    <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center relative">
-                      {/* Animated letter */}
-                      <motion.div 
-                        className="text-6xl font-bold text-white/20"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {project.title.charAt(0)}
-                      </motion.div>
+                   <div className="relative overflow-hidden">
+                     <div className="aspect-video bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center relative">
+                       {/* Project logo/image */}
+                       <div className="relative z-10">
+                         <img
+                           src={project.image}
+                           alt={project.title}
+                           className="max-h-20 object-contain transition-transform duration-300 group-hover:scale-110"
+                         />
+                       </div>
                       
                       {/* Floating particles on hover */}
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
