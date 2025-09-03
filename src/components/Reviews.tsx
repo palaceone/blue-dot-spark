@@ -40,6 +40,27 @@ const Reviews = () => {
 
   const reviews = [
     {
+      name: 'CEO Studio Ecommerce',
+      position: 'Ecommercowy',
+      review: 'Polecam serdecznie, na start otrzymałem kilka konceptów i bazując na Twojej wiedzy wybraliśmy najlepszy pod druk, wiele poprawek ale każda była robiona praktycznie od ręki. Były też problemy z wymiarami pod konkretne social media, również sprawa sprawnie ogarnięta, a cała usługa przystępna cenowo - polecam i w przyszłości będę wracać przy okazji nowych projektów.',
+      rating: 5,
+      avatar: '🛒'
+    },
+    {
+      name: 'Egzey',
+      position: 'Virality',
+      review: 'Pomimo licznych poprawek i próśb, Paweł podołał mojemu wyzwaniu. Profesjonalne podejście i cierpliwość w realizacji nawet najbardziej wymagających projektów.',
+      rating: 5,
+      avatar: '🔥'
+    },
+    {
+      name: 'Bartek W.',
+      position: 'Klient',
+      review: 'Polecam serdecznie, wszystko o co poprosiłem zostało zrobione perfekcyjnie. Świetny kontakt, szybka realizacja i efekt przewyższający oczekiwania.',
+      rating: 5,
+      avatar: '✨'
+    },
+    {
       name: 'Anna Kowalska',
       position: 'CEO, TechFlow Polska',
       review: 'WAVES całkowicie przekształciło naszą identyfikację wizualną. Minimalistyczne podejście, które zastosowali, idealnie uchwyciło naszą wizję, znacząco poprawiając naszą obecność na rynku.',
