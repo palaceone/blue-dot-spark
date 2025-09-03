@@ -31,17 +31,12 @@ const DihoProject = () => {
 
   const projectDetails = {
     title: 'DIHO - Morda Nie Szklanka',
-    client: 'DIHO',
+    client: 'DIHO / ART-C Agency',
     category: 'Grafika Koncertowa',
     year: '2024',
-    duration: '4 tygodnie',
-    challenge: 'Stworzenie kompletnej identyfikacji wizualnej dla trasy koncertowej "Morda Nie Szklanka" artysty DIHO, obejmującej plakaty, banery i materiały promocyjne.',
-    solution: 'Zaprojektowaliśmy dynamiczną grafikę inspirowaną estetyką muzyczną, wykorzystując kontrastowe kolory i nowoczesną typografię. Projekt odzwierciedla energię i charakter artysty.',
-    results: [
-      { metric: '+240%', description: 'Wzrost zaangażowania na social media' },
-      { metric: '+180%', description: 'Sprzedaż biletów' },
-      { metric: '+320%', description: 'Rozpoznawalność trasy' }
-    ]
+    duration: '2 dni',
+    challenge: 'Stworzenie grafik koncertowych na social media dla agencji ART-C oraz DIHO w celu ogłoszenia trasy koncertowej. Głównym wyzwaniem był ograniczony czas na realizację projektu.',
+    solution: 'W ramach rozwiązania stworzyliśmy atrakcyjne grafiki promocyjne w ekspresowym czasie (2 dni), które skutecznie komunikują informacje o trasie koncertowej i przyciągają uwagę fanów.'
   };
 
   return (
@@ -81,9 +76,9 @@ const DihoProject = () => {
                 {projectDetails.challenge}
               </p>
               <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
-                <div>
-                  <span className="text-muted-foreground">Artysta:</span>
-                  <span className="ml-2 font-medium">{projectDetails.client}</span>
+              <div>
+                <span className="text-muted-foreground">Klient:</span>
+                <span className="ml-2 font-medium">{projectDetails.client}</span>
                 </div>
                 <div>
                   <span className="text-muted-foreground">Rok:</span>
@@ -102,16 +97,17 @@ const DihoProject = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <motion.div
-              className="aspect-video bg-gradient-to-br from-primary/30 to-accent/30 rounded-2xl flex items-center justify-center shadow-2xl"
+              className="aspect-video bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-2xl overflow-hidden"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="text-center">
-                <Music size={80} className="text-white/30 mx-auto mb-4" />
-                <p className="text-white/50 text-lg">DIHO - Morda Nie Szklanka Tour</p>
-              </div>
+              <img
+                src="/lovable-uploads/e3a41f91-8dce-42a0-a168-19d248899f94.png"
+                alt="DIHO - Morda Nie Szklanka Tour grafika koncertowa"
+                className="w-full h-full object-contain"
+              />
             </motion.div>
           </div>
         </section>
@@ -132,9 +128,9 @@ const DihoProject = () => {
                 </p>
                 <div className="mt-6 flex items-center gap-3">
                   <Music className="text-primary flex-shrink-0" size={24} />
-                  <span className="font-medium text-sm sm:text-base">Focus: Muzyka, Energia, Rozpoznawalność</span>
-                </div>
-              </motion.div>
+                <span className="font-medium text-sm sm:text-base">Focus: Social Media, Szybka realizacja, Promocja koncertów</span>
+              </div>
+            </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
@@ -147,51 +143,10 @@ const DihoProject = () => {
                   {projectDetails.solution}
                 </p>
                 <div className="mt-6 flex items-center gap-3">
-                  <TrendingUp className="text-accent flex-shrink-0" size={24} />
-                  <span className="font-medium text-sm sm:text-base">Rezultat: Dynamiczna identyfikacja wizualna</span>
-                </div>
+                <TrendingUp className="text-accent flex-shrink-0" size={24} />
+                <span className="font-medium text-sm sm:text-base">Rezultat: Ekspresowa realizacja grafik promocyjnych</span>
+              </div>
               </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Results */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <motion.div
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl font-bold mb-6 text-gradient">Rezultaty</h2>
-              <p className="text-xl text-muted-foreground">
-                Projekt znacząco wpłynął na sukces trasy koncertowej
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {projectDetails.results.map((result, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card className="text-center p-8 h-full bg-card border-border hover:border-primary/30 transition-smooth">
-                    <CardContent className="p-0">
-                      <div className="text-4xl font-black text-gradient mb-4">
-                        {result.metric}
-                      </div>
-                      <p className="text-muted-foreground">
-                        {result.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>

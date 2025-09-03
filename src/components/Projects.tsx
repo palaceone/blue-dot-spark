@@ -70,7 +70,7 @@ const Projects = () => {
       title: 'DIHO - Grafika Koncertowa',
       category: 'Grafika Koncertowa',
       description: 'Projekt graficzny dla trasy koncertowej "Morda Nie Szklanka" - plakaty, banery i materiały promocyjne.',
-      image: '/lovable-uploads/ee759693-0429-4705-a01a-923ee065591a.png',
+      image: '/lovable-uploads/e3a41f91-8dce-42a0-a168-19d248899f94.png',
       icon: <Target className="text-primary" size={24} />,
       results: '+240% Zaangażowanie'
     }
