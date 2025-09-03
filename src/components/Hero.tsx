@@ -202,32 +202,6 @@ const Hero = () => {
             >
               Grafika & Video
             </motion.h1>
-            <motion.div 
-              className="text-center mt-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-            >
-              <span className="text-white/60 text-lg">* </span>
-              <ShinyText 
-                text="kreacja" 
-                speed={3} 
-                className="text-lg" 
-              />
-              <span className="text-white/60 text-lg"> * </span>
-              <ShinyText 
-                text="montaż" 
-                speed={3} 
-                className="text-lg" 
-              />
-              <span className="text-white/60 text-lg"> * </span>
-              <ShinyText 
-                text="efekty" 
-                speed={3} 
-                className="text-lg" 
-              />
-              <span className="text-white/60 text-lg"> *</span>
-            </motion.div>
           </div>
           
           <TextReveal delay={1.5} className="mb-12">

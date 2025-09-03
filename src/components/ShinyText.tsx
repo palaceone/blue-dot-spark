@@ -11,18 +11,19 @@ const ShinyText: React.FC<ShinyTextProps> = ({ text, disabled = false, speed = 5
   const animationDuration = `${speed}s`;
 
   return (
-    <div
-      className={`text-[#b5b5b5a4] bg-clip-text inline-block ${disabled ? '' : 'animate-shine'} ${className}`}
+    <span
+      className={`bg-gradient-to-r from-white via-white to-white bg-clip-text text-transparent ${disabled ? '' : 'animate-shine'} ${className}`}
       style={{
         backgroundImage:
-          'linear-gradient(120deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 60%)',
+          'linear-gradient(120deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.3) 100%)',
         backgroundSize: '200% 100%',
         WebkitBackgroundClip: 'text',
+        backgroundClip: 'text',
         animationDuration: animationDuration
       }}
     >
       {text}
-    </div>
+    </span>
   );
 };
 
