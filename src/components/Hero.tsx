@@ -162,7 +162,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--primary)/0.1)_0%,transparent_50%)] z-10" />
 
       <div className="container mx-auto px-4 text-center relative z-20">
-        {/* Enhanced Waves Logo */}
+        {/* Enhanced Logo */}
         <InteractiveCard className="flex items-center justify-center mb-16">
           <motion.div 
             className="flex items-center justify-center"
@@ -171,7 +171,7 @@ const Hero = () => {
             transition={{ duration: 1 }}
           >
             <div ref={waveRef} className="relative group">
-              <div className="w-20 h-20 flex items-center justify-center relative">
+              <div className="w-32 h-32 flex items-center justify-center relative">
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -179,21 +179,13 @@ const Hero = () => {
                   <img 
                     src="/lovable-uploads/ee759693-0429-4705-a01a-923ee065591a.png" 
                     alt="Logo" 
-                    className="w-14 h-14 object-contain group-hover:scale-110 transition-transform duration-500"
+                    className="w-24 h-24 object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                 </motion.div>
                 <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/30 transition-all duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500" />
               </div>
             </div>
-            <motion.h1 
-              className="ml-6 text-6xl font-bold text-white tracking-wider bg-gradient-to-r from-white to-primary bg-clip-text text-transparent"
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-            >
-              WAVES
-            </motion.h1>
           </motion.div>
         </InteractiveCard>
 
