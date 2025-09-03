@@ -9,6 +9,8 @@ import { TextReveal, SplitText } from './TextReveal';
 import { FloatingParticles } from './FloatingParticles';
 import { MagneticButton } from './MagneticButton';
 import { InteractiveCard } from './InteractiveCard';
+import { BlurText } from './BlurText';
+import { CircularText } from './CircularText';
 
 const Hero = () => {
   const waveRef = useRef<HTMLDivElement>(null);
@@ -159,47 +161,25 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--primary)/0.1)_0%,transparent_50%)] z-10" />
 
       <div className="container mx-auto px-4 text-center relative z-20">
-        {/* Enhanced Waves Logo */}
-        <InteractiveCard className="flex items-center justify-center mb-16">
-          <motion.div 
-            className="flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <div ref={waveRef} className="relative group">
-              <div className="w-20 h-20 flex items-center justify-center relative">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                >
-                  <Waves 
-                    className="text-white text-4xl group-hover:text-primary transition-colors duration-500" 
-                    size={56}
-                  />
-                </motion.div>
-                <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl group-hover:bg-primary/30 transition-all duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500" />
-              </div>
-            </div>
-            <motion.h1 
-              className="ml-6 text-6xl font-bold text-white tracking-wider bg-gradient-to-r from-white to-primary bg-clip-text text-transparent"
-              initial={{ x: -30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-            >
-              WAVES
-            </motion.h1>
-          </motion.div>
-        </InteractiveCard>
+        {/* Circular Text Logo */}
+        <div className="absolute top-8 left-8 z-30">
+          <CircularText 
+            text="WAVES•GRAFIKA•VIDEO•"
+            spinDuration={15}
+            onHover="speedUp"
+            className="text-primary"
+          />
+        </div>
 
         {/* Enhanced Main Text with Split Animation */}
         <div ref={textRef} className="max-w-5xl mx-auto">
           <div className="mb-8">
-            <SplitText
+            <BlurText
               text="Grafika & Video"
-              className="hero-text text-gradient"
-              delay={0.5}
+              className="text-5xl md:text-7xl font-bold text-gradient"
+              animateBy="words"
+              direction="top"
+              delay={150}
             />
           </div>
           
@@ -217,11 +197,16 @@ const Hero = () => {
             transition={{ delay: 2, duration: 0.8 }}
           >
             <MagneticButton 
-              className="bg-gradient-to-r from-primary to-primary/80 text-white hover:from-primary/80 hover:to-primary px-10 py-6 text-lg font-medium transition-all duration-300 rounded-full shadow-lg hover:shadow-primary/25 border border-primary/30"
+              className="bg-gradient-to-r from-primary to-accent text-white hover:from-primary/90 hover:to-accent/90 px-10 py-6 text-lg font-medium transition-all duration-300 rounded-full shadow-lg hover:shadow-primary/25 border border-primary/30"
               onClick={scrollToProjects}
             >
               <Play className="mr-2" size={20} />
-              Zobacz Nasze Prace
+              <BlurText 
+                text="Zobacz Nasze Prace"
+                className="font-medium"
+                animateBy="words"
+                delay={50}
+              />
             </MagneticButton>
             
             <MagneticButton 
