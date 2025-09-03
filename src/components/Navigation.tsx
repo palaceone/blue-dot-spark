@@ -89,17 +89,75 @@ const Navigation = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
           >
-            {/* Animated Grid Background */}
-            <div className="absolute inset-0 z-0">
-              <div className="absolute inset-0 bg-gradient-to-br from-black via-transparent to-gray-900/50" />
-              {Array.from({ length: 50 }).map((_, i) => (
-                <div 
-                  key={i} 
-                  className="absolute w-1 h-1 bg-white/10 rounded-full animate-pulse"
+            {/* Advanced Animated Grid Background */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+              {/* Gradient Base */}
+              <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900/80 to-black" />
+              
+              {/* Animated Grid Lines */}
+              <div className="absolute inset-0">
+                {Array.from({ length: 20 }).map((_, i) => (
+                  <motion.div
+                    key={`vertical-${i}`}
+                    className="absolute top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent"
+                    style={{ left: `${(i + 1) * 5}%` }}
+                    initial={{ opacity: 0, scaleY: 0 }}
+                    animate={{ opacity: 1, scaleY: 1 }}
+                    transition={{ delay: i * 0.05, duration: 0.8 }}
+                  />
+                ))}
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <motion.div
+                    key={`horizontal-${i}`}
+                    className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"
+                    style={{ top: `${(i + 1) * 8.33}%` }}
+                    initial={{ opacity: 0, scaleX: 0 }}
+                    animate={{ opacity: 1, scaleX: 1 }}
+                    transition={{ delay: i * 0.03 + 0.2, duration: 0.6 }}
+                  />
+                ))}
+              </div>
+
+              {/* Floating Particles */}
+              {Array.from({ length: 30 }).map((_, i) => (
+                <motion.div 
+                  key={`particle-${i}`} 
+                  className="absolute w-2 h-2 bg-primary/30 rounded-full"
                   style={{
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`,
-                    animationDelay: `${Math.random() * 3}s`
+                  }}
+                  animate={{
+                    y: [0, -20, 0],
+                    opacity: [0.3, 0.8, 0.3],
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    duration: 3 + Math.random() * 2,
+                    repeat: Infinity,
+                    delay: Math.random() * 2
+                  }}
+                />
+              ))}
+
+              {/* Glowing Orbs */}
+              {Array.from({ length: 5 }).map((_, i) => (
+                <motion.div
+                  key={`orb-${i}`}
+                  className="absolute w-32 h-32 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 blur-xl"
+                  style={{
+                    left: `${Math.random() * 80 + 10}%`,
+                    top: `${Math.random() * 80 + 10}%`,
+                  }}
+                  animate={{
+                    x: [0, 50, -50, 0],
+                    y: [0, -30, 30, 0],
+                    scale: [1, 1.1, 0.9, 1]
+                  }}
+                  transition={{
+                    duration: 8 + Math.random() * 4,
+                    repeat: Infinity,
+                    ease: "linear"
                   }}
                 />
               ))}
