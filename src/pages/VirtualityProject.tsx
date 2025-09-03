@@ -49,11 +49,11 @@ const VirtualityProject = () => {
               className="flex items-center gap-2 hover:bg-accent"
             >
               <ArrowLeft size={20} />
-              Powrót
+              <span className="hidden sm:inline">Powrót</span>
             </Button>
             <div className="flex items-center gap-3">
-              <Zap className="text-primary" size={24} />
-              <span className="font-bold text-xl">WAVES</span>
+              <Zap className="text-primary" size={20} />
+              <span className="font-bold text-lg sm:text-xl">WAVES</span>
             </div>
           </div>
         </div>
@@ -66,13 +66,13 @@ const VirtualityProject = () => {
             <Badge variant="outline" className="mb-4">
               {projectDetails.category}
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-black mb-6 text-gradient">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-black mb-6 text-gradient">
               {projectDetails.title}
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto px-4">
               {projectDetails.challenge}
             </p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
               <div>
                 <span className="text-muted-foreground">Klient:</span>
                 <span className="ml-2 font-medium">{projectDetails.client}</span>
@@ -112,20 +112,20 @@ const VirtualityProject = () => {
       {/* Challenge & Solution */}
       <section className="py-16 bg-secondary/10">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-6 text-gradient">Wyzwanie</h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gradient">Wyzwanie</h2>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
                 {projectDetails.challenge}
               </p>
               <div className="mt-6 flex items-center gap-3">
-                <Eye className="text-primary" size={24} />
-                <span className="font-medium">Kluczowe cele: Innowacyjność, Cyfrowa transformacja, SaaS</span>
+                <Eye className="text-primary flex-shrink-0" size={24} />
+                <span className="font-medium text-sm sm:text-base">Kluczowe cele: Innowacyjność, Cyfrowa transformacja, SaaS</span>
               </div>
             </motion.div>
 
@@ -135,13 +135,13 @@ const VirtualityProject = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold mb-6 text-gradient">Rozwiązanie</h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gradient">Rozwiązanie</h2>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
                 {projectDetails.solution}
               </p>
               <div className="mt-6 flex items-center gap-3">
-                <TrendingUp className="text-accent" size={24} />
-                <span className="font-medium">Rezultat: Silna identyfikacja wizualna</span>
+                <TrendingUp className="text-accent flex-shrink-0" size={24} />
+                <span className="font-medium text-sm sm:text-base">Rezultat: Silna identyfikacja wizualna</span>
               </div>
             </motion.div>
           </div>
@@ -158,15 +158,15 @@ const VirtualityProject = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-6 pb-2">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 pb-2">
               Stwórzmy Razem Coś Wyjątkowego
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto px-4">
               Gotowy na projekt, który przemieni Twoją markę? Skontaktuj się z nami już dziś.
             </p>
             <Button
               size="lg"
-              className="bg-white text-black hover:bg-gray-100 px-10 py-6 text-lg font-medium"
+              className="bg-white text-black hover:bg-gray-100 px-6 sm:px-10 py-4 sm:py-6 text-base sm:text-lg font-medium"
               onClick={() => navigate('/#contact')}
             >
               <Users className="mr-2" size={20} />
