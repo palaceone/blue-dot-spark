@@ -59,12 +59,12 @@ const Projects = () => {
       results: '+180% Rozpoznawalność Marki'
     },
     {
-      title: 'Ecommerce Studio',
+      title: 'Studio ecommerce',
       category: 'Branding',
-      description: 'Projekt identyfikacji wizualnej dla studia e-commerce, obejmujący logo, kolorystykę i guidelines.',
-      image: '/api/placeholder/600/400',
+      description: 'Start w e-commerce nigdy nie był tak prosty - dzięki wieloletniemu doświadczeniu wprowadzamy klientów w branżę handlu internetowego w zaledwie 90 dni.',
+      image: '/lovable-uploads/f22bf26e-9069-4bc0-a302-db130d188b1b.png',
       icon: <Palette className="text-accent" size={24} />,
-      results: '+65% Wzrost Sprzedaży'
+      results: '90 Dni do Sukcesu'
     },
     {
       title: 'DIHO - Grafika Koncertowa',
@@ -115,7 +115,7 @@ const Projects = () => {
                 transition={{ duration: 0.4, type: "spring", stiffness: 300 }}
                 onClick={() => {
                   if (project.title === 'Virality - Logo Design') navigate('/project/virality-logo');
-                  else if (project.title === 'Ecommerce Studio') navigate('/project/ecommerce-studio');
+                  else if (project.title === 'Studio ecommerce') navigate('/project/ecommerce-studio');
                   else if (project.title === 'DIHO - Grafika Koncertowa') navigate('/project/diho-tour');
                   else navigate('/projekty');
                 }}

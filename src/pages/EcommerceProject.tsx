@@ -28,18 +28,13 @@ const EcommerceProject = () => {
   }, []);
 
   const projectDetails = {
-    title: 'Ecommerce Studio',
-    client: 'Ecommerce Studio',
+    title: 'Studio ecommerce',
+    client: 'Studio ecommerce',
     category: 'Branding',
     year: '2024',
     duration: '8 tygodni',
-    challenge: 'Stworzenie kompleksowej identyfikacji wizualnej dla studia e-commerce, które pomoże klientom w budowaniu silnych marek online.',
-    solution: 'Opracowaliśmy nowoczesny system identyfikacji wizualnej obejmujący logo, kolorystykę, typografię i guidelines. Projekt odzwierciedla profesjonalizm i innowacyjność.',
-    results: [
-      { metric: '+65%', description: 'Wzrost sprzedaży klientów' },
-      { metric: '+120%', description: 'Poprawa rozpoznawalności' },
-      { metric: '+200%', description: 'Wzrost zapytań o usługi' }
-    ]
+    challenge: 'Start w e-commerce nigdy nie był tak prosty. Dzięki wieloletniemu doświadczeniu jestem w stanie wprowadzić Cię w branżę handlu internetowego w zaledwie 90 dni. W trakcie całej swojej przygody dostrzegałem rzeczy które umykały innym.',
+    solution: 'Teraz całą tą wiedzą mogę podzielić się z Tobą. Zaprojektowaliśmy logo które odzwierciedla prostotę i skuteczność wprowadzania klientów w świat e-commerce.'
   };
 
   return (
@@ -99,16 +94,17 @@ const EcommerceProject = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <motion.div
-            className="aspect-video bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl flex items-center justify-center shadow-2xl"
+            className="aspect-video bg-white rounded-2xl flex items-center justify-center shadow-2xl"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="text-center">
-              <ShoppingCart size={80} className="text-white/30 mx-auto mb-4" />
-              <p className="text-white/50 text-lg">Ecommerce Studio Branding</p>
-            </div>
+            <img
+              src="/lovable-uploads/f22bf26e-9069-4bc0-a302-db130d188b1b.png"
+              alt="Studio ecommerce logo"
+              className="max-h-32 object-contain"
+            />
           </motion.div>
         </div>
       </section>
@@ -152,46 +148,6 @@ const EcommerceProject = () => {
         </div>
       </section>
 
-      {/* Results */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold mb-6 text-gradient">Rezultaty</h2>
-            <p className="text-xl text-muted-foreground">
-              Projekt znacząco wpłynął na rozwój biznesu klienta
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {projectDetails.results.map((result, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="text-center p-8 h-full bg-card border-border hover:border-primary/30 transition-smooth">
-                  <CardContent className="p-0">
-                    <div className="text-4xl font-black text-gradient mb-4">
-                      {result.metric}
-                    </div>
-                    <p className="text-muted-foreground">
-                      {result.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Next Project CTA */}
       <section className="py-16 bg-secondary/20">
