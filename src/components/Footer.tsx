@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Instagram, Twitter, Dribbble, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Instagram, Twitter, Dribbble, Linkedin } from 'lucide-react';
+import PrivacyPolicyModal from './PrivacyPolicyModal';
 const Footer = () => {
+  const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
   const currentYear = new Date().getFullYear();
   const socialLinks = [{
     icon: <Instagram size={20} />,
@@ -182,10 +184,6 @@ const Footer = () => {
                 <span className="text-muted-foreground">pawel@waves.cafe</span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone size={16} className="text-primary" />
-                <span className="text-muted-foreground">+48 123 456 789</span>
-              </div>
-              <div className="flex items-center gap-3">
                 <MapPin size={16} className="text-primary" />
                 <span className="text-muted-foreground">Nowy Dwór Mazowiecki</span>
               </div>
@@ -218,19 +216,21 @@ const Footer = () => {
               © {currentYear} WAVES Studio. Wszelkie prawa zastrzeżone.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
+              <button 
+                onClick={() => setIsPrivacyModalOpen(true)}
+                className="text-muted-foreground hover:text-primary transition-smooth"
+              >
                 Polityka Prywatności
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
-                Regulamin
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-smooth">
-                Polityka Cookies
-              </a>
+              </button>
             </div>
           </div>
         </motion.div>
       </div>
+      
+      <PrivacyPolicyModal 
+        isOpen={isPrivacyModalOpen} 
+        onClose={() => setIsPrivacyModalOpen(false)} 
+      />
     </footer>;
 };
 export default Footer;
