@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Mail, Phone, MapPin, Send, CheckCircle, Circle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Circle, MessageSquare, Building } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -201,85 +201,49 @@ const Contact = () => {
           >
             <Card className="bg-card border-border">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Rozpocznij Swój Projekt</h3>
+                <h3 className="text-2xl font-bold mb-6">Jesteśmy otwarci na nowe projekty!</h3>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Imię i Nazwisko *
-                      </label>
-                      <Input
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Twoje imię i nazwisko"
-                        required
-                        className="bg-input border-border focus:border-primary transition-smooth"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-2">
-                        Adres Email *
-                      </label>
-                      <Input
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        placeholder="twoj@email.com"
-                        required
-                        className="bg-input border-border focus:border-primary transition-smooth"
-                      />
-                    </div>
+                <div className="space-y-6">
+                  <div className="text-center">
+                    <p className="text-muted-foreground mb-6">
+                      Masz pomysł na projekt? Chcesz omówić współpracę? Skontaktuj się z nami w wybrany przez siebie sposób.
+                    </p>
                   </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Nazwa Firmy
-                    </label>
-                    <Input
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      placeholder="Nazwa Twojej firmy"
-                      className="bg-input border-border focus:border-primary transition-smooth"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Szczegóły Projektu *
-                    </label>
-                    <Textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Opisz swój projekt, cele i harmonogram..."
-                      rows={6}
-                      required
-                      className="bg-input border-border focus:border-primary transition-smooth resize-none"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-primary text-white font-medium py-6 text-lg shadow-primary hover:shadow-accent transition-bounce disabled:opacity-50"
-                  >
-                    {isSubmitting ? (
-                      <div className="flex items-center gap-2">
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Wysyłanie wiadomości...
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 p-4 bg-secondary/20 rounded-lg">
+                      <Mail className="text-primary" size={20} />
+                      <div>
+                        <p className="font-medium">Email</p>
+                        <a href="mailto:kontakt@example.com" className="text-primary hover:underline">
+                          kontakt@example.com
+                        </a>
                       </div>
-                    ) : (
-                      <div className="flex items-center gap-2">
-                        <Send size={20} />
-                        Wyślij Wiadomość
+                    </div>
+                    
+                    <div className="flex items-center gap-3 p-4 bg-secondary/20 rounded-lg">
+                      <MessageSquare className="text-primary" size={20} />
+                      <div>
+                        <p className="font-medium">Czas odpowiedzi</p>
+                        <p className="text-muted-foreground">Odpowiadamy w ciągu 24 godzin</p>
                       </div>
-                    )}
-                  </Button>
-                </form>
+                    </div>
+                    
+                    <div className="flex items-center gap-3 p-4 bg-secondary/20 rounded-lg">
+                      <Building className="text-primary" size={20} />
+                      <div>
+                        <p className="font-medium">Nowe projekty</p>
+                        <p className="text-muted-foreground">Zawsze otwarci na ciekawe wyzwania</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="text-center pt-4">
+                    <p className="text-sm text-muted-foreground">
+                      Każdy projekt traktujemy indywidualnie. Napisz do nas o swojej wizji!
+                    </p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </motion.div>

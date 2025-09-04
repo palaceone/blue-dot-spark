@@ -105,82 +105,48 @@ const ContactSlideForm = ({ isOpen, onClose }: ContactSlideFormProps) => {
                 </Button>
               </div>
 
-              {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="flex items-center gap-2">
-                    <User size={16} />
-                    Imię i nazwisko *
-                  </Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Jan Kowalski"
-                    className="bg-secondary/20"
-                  />
+              {/* Contact Information */}
+              <div className="space-y-6">
+                <div className="text-center">
+                  <p className="text-muted-foreground mb-6">
+                    Masz pomysł na projekt? Chcesz omówić współpracę? Skontaktuj się z nami w wybrany przez siebie sposób.
+                  </p>
                 </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="flex items-center gap-2">
-                    <Mail size={16} />
-                    Email *
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="jan@example.com"
-                    className="bg-secondary/20"
-                  />
+                
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 p-4 bg-secondary/20 rounded-lg">
+                    <Mail className="text-primary" size={20} />
+                    <div>
+                      <p className="font-medium">Email</p>
+                      <a href="mailto:kontakt@example.com" className="text-primary hover:underline">
+                        kontakt@example.com
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 p-4 bg-secondary/20 rounded-lg">
+                    <MessageSquare className="text-primary" size={20} />
+                    <div>
+                      <p className="font-medium">Czas odpowiedzi</p>
+                      <p className="text-muted-foreground">Odpowiadamy w ciągu 24 godzin</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 p-4 bg-secondary/20 rounded-lg">
+                    <Building className="text-primary" size={20} />
+                    <div>
+                      <p className="font-medium">Nowe projekty</p>
+                      <p className="text-muted-foreground">Zawsze otwarci na ciekawe wyzwania</p>
+                    </div>
+                  </div>
                 </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="company" className="flex items-center gap-2">
-                    <Building size={16} />
-                    Firma
-                  </Label>
-                  <Input
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="Nazwa firmy"
-                    className="bg-secondary/20"
-                  />
+                
+                <div className="text-center pt-4">
+                  <p className="text-sm text-muted-foreground">
+                    Każdy projekt traktujemy indywidualnie. Napisz do nas o swojej wizji!
+                  </p>
                 </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="flex items-center gap-2">
-                    <MessageSquare size={16} />
-                    Wiadomość *
-                  </Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    placeholder="Opisz swój projekt i wymagania..."
-                    rows={6}
-                    className="bg-secondary/20 resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-primary to-accent text-white font-medium py-3 mt-6"
-                >
-                  <Send size={16} className="mr-2" />
-                  {isSubmitting ? 'Wysyłanie...' : 'Wyślij Wiadomość'}
-                </Button>
-              </form>
+              </div>
 
               <div className="mt-6 pt-6 border-t border-border">
                 <p className="text-sm text-muted-foreground text-center">
