@@ -125,7 +125,7 @@ const Contact = () => {
               className="w-2 h-2 rounded-full bg-white"
             />
             <span className="text-white font-medium">
-              Otwarci na nowe projekty
+              Jesteśmy otwarci na nowe projekty
             </span>
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-gradient mb-6">
@@ -134,75 +134,22 @@ const Contact = () => {
             Coś Wyjątkowego
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Gotowy na transformację swojej marki? Skontaktuj się z nami i przedyskutujmy, 
+            Gwarantujemy odpowiedź w ciągu 24 godzin. Skontaktuj się z nami i przedyskutujmy, 
             jak możemy tchnąć życie w Twoją wizję.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Information */}
+        {/* Contact Information - Centered */}
+        <div className="flex justify-center">
           <motion.div
-            className="lg:col-span-1"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="w-full max-w-2xl"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-bold mb-8">Skontaktuj się z nami</h3>
-            
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={info.title}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-smooth"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    {info.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">{info.title}</h4>
-                    <p className="text-foreground font-medium">{info.details}</p>
-                    <p className="text-sm text-muted-foreground">{info.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Quick Stats */}
-            <motion.div
-              className="mt-12 p-6 rounded-2xl bg-gradient-primary text-white"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <CheckCircle size={24} />
-                <span className="text-lg font-semibold">Gwarantujemy</span>
-              </div>
-              <div className="text-center">
-                <p className="text-lg font-medium">✓ Odpowiedź w ciągu 24 godzin</p>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            ref={formRef}
-            className="lg:col-span-2"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
             <Card className="bg-card border-border">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Jesteśmy otwarci na nowe projekty!</h3>
-                
                 <div className="space-y-6">
                   <div className="text-center">
                     <p className="text-muted-foreground mb-6">
@@ -215,8 +162,8 @@ const Contact = () => {
                       <Mail className="text-primary" size={20} />
                       <div>
                         <p className="font-medium">Email</p>
-                        <a href="mailto:kontakt@example.com" className="text-primary hover:underline">
-                          kontakt@example.com
+                        <a href="mailto:pawel@waves.cafe" className="text-primary hover:underline">
+                          pawel@waves.cafe
                         </a>
                       </div>
                     </div>

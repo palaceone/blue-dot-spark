@@ -7,19 +7,22 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    // GSAP animation for menu overlay
-    if (isMenuOpen) {
-      gsap.to('.menu-overlay', {
-        duration: 0.5,
-        opacity: 1,
-        ease: 'power3.out'
-      });
-    } else {
-      gsap.to('.menu-overlay', {
-        duration: 0.4,
-        opacity: 0,
-        ease: 'power3.in'
-      });
+    // GSAP animation for menu overlay - check if element exists first
+    const menuOverlay = document.querySelector('.menu-overlay');
+    if (menuOverlay) {
+      if (isMenuOpen) {
+        gsap.to(menuOverlay, {
+          duration: 0.5,
+          opacity: 1,
+          ease: 'power3.out'
+        });
+      } else {
+        gsap.to(menuOverlay, {
+          duration: 0.4,
+          opacity: 0,
+          ease: 'power3.in'
+        });
+      }
     }
   }, [isMenuOpen]);
 
