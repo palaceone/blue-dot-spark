@@ -86,7 +86,7 @@ const Navigation = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="menu-overlay fixed inset-0 z-40 bg-black"
+            className="menu-overlay fixed inset-0 z-40 bg-black/95 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -167,14 +167,14 @@ const Navigation = () => {
             </div>
 
             {/* Menu Content on the Left */}
-            <div className="flex h-full relative z-10">
+            <div className="flex flex-col sm:flex-row h-full relative z-10">
               {/* Left Side - Menu Items */}
-              <div className="w-1/2 lg:w-1/3 flex flex-col justify-center pl-12 lg:pl-20">
+              <div className="w-full sm:w-1/2 lg:w-1/3 flex flex-col justify-center px-6 sm:pl-12 lg:pl-20">
                 <nav className="space-y-6">
                   {menuItems.map((item, index) => (
                     <motion.button
                       key={item.name}
-                      className="block text-left text-3xl lg:text-4xl font-bold text-white hover:text-gray-300 transition-colors py-2 group"
+                      className="block text-left text-xl sm:text-3xl lg:text-4xl font-bold text-white hover:text-gray-300 transition-colors py-2 group"
                       onClick={() => handleMenuClick(item.href)}
                       initial={{ opacity: 0, x: -50 }}
                       animate={{ 
@@ -197,7 +197,7 @@ const Navigation = () => {
               </div>
 
               {/* Right Side - Logo and Social Media */}
-              <div className="w-1/2 lg:w-2/3 flex flex-col items-center justify-center space-y-8">
+              <div className="w-full sm:w-1/2 lg:w-2/3 flex flex-col items-center justify-center space-y-8">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ 
@@ -210,7 +210,7 @@ const Navigation = () => {
                   <img 
                     src="/lovable-uploads/ee759693-0429-4705-a01a-923ee065591a.png" 
                     alt="Logo" 
-                    className="w-64 h-64 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                    className="w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full blur-3xl animate-pulse" />
                 </motion.div>
