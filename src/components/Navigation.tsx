@@ -174,7 +174,7 @@ const Navigation = () => {
                   {menuItems.map((item, index) => (
                     <motion.button
                       key={item.name}
-                      className="block w-full text-center sm:text-left text-xl sm:text-3xl lg:text-4xl font-bold text-white transition-all duration-500 py-3 px-4 group relative overflow-hidden rounded-lg"
+                      className="block w-full text-center sm:text-left text-xl sm:text-3xl lg:text-4xl font-bold text-white transition-all duration-500 py-3 px-4 group"
                       onClick={() => handleMenuClick(item.href)}
                       initial={{ opacity: 0, x: -50 }}
                       animate={{ 
@@ -187,11 +187,7 @@ const Navigation = () => {
                       }}
                       whileHover={{ x: 0 }}
                     >
-                      {/* Outer glow effect */}
-                      <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 to-accent/30 opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl -z-10" />
-                      <div className="absolute -inset-1 bg-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-300 blur-md -z-10" />
-                      
-                      <span className="relative z-10 group-hover:text-white transition-colors duration-300">
+                      <span className="group-hover:text-white group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] transition-all duration-300">
                         {item.name}
                       </span>
                     </motion.button>
