@@ -174,7 +174,7 @@ const Navigation = () => {
                   {menuItems.map((item, index) => (
                     <motion.button
                       key={item.name}
-                      className="block text-left text-xl sm:text-3xl lg:text-4xl font-bold text-white hover:text-gray-300 transition-colors py-2 group"
+                      className="block w-full text-center sm:text-left text-xl sm:text-3xl lg:text-4xl font-bold text-white transition-all duration-500 py-3 px-4 group relative overflow-hidden rounded-lg"
                       onClick={() => handleMenuClick(item.href)}
                       initial={{ opacity: 0, x: -50 }}
                       animate={{ 
@@ -185,11 +185,14 @@ const Navigation = () => {
                         delay: isMenuOpen ? index * 0.1 + 0.2 : 0,
                         duration: 0.4 
                       }}
-                      whileHover={{ x: 10 }}
+                      whileHover={{ x: 0 }}
                     >
-                      <span className="relative">
+                      {/* Backlight effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-500 blur-sm" />
+                      <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-all duration-300" />
+                      
+                      <span className="relative z-10 group-hover:text-white transition-colors duration-300">
                         {item.name}
-                        <div className="absolute inset-0 bg-white/5 rounded-lg blur-lg group-hover:bg-black/30 transition-all duration-500 -z-10" />
                       </span>
                     </motion.button>
                   ))}
